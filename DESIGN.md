@@ -1,6 +1,6 @@
 ---
 name: Dead Signal Valley — Copperlight river route
-description: A quiet paper interface around a walkable Copperlight valley.
+description: A paper explorer HUD around a living Copperlight town, with directory, radar, community and studio activities.
 colors:
   paper: "#f5f0e5"
   ink: "#253f39"

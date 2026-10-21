@@ -1,0 +1,681 @@
+{
+  "checks": [
+    {
+      "label": "All 15 individually generated café asset types load",
+      "pass": true
+    },
+    {
+      "label": "Original espresso preserved",
+      "pass": true
+    },
+    {
+      "label": "Directory filter all",
+      "pass": true,
+      "data": 22
+    },
+    {
+      "label": "Directory filter shop",
+      "pass": true,
+      "data": 15
+    },
+    {
+      "label": "Directory filter landmark",
+      "pass": true,
+      "data": 10
+    },
+    {
+      "label": "Directory filter enterable",
+      "pass": true,
+      "data": 3
+    },
+    {
+      "label": "Search typing does not move player or cycle lighting",
+      "pass": true
+    },
+    {
+      "label": "Directory searches useful shop details",
+      "pass": true
+    },
+    {
+      "label": "Escape closes focused search",
+      "pass": true
+    },
+    {
+      "label": "Safe actual UI visit Visit Copper Kettle Café",
+      "pass": true,
+      "data": {
+        "x": -13,
+        "z": 16,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit Margin & Moss",
+      "pass": true,
+      "data": {
+        "x": -23,
+        "z": 3.2,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit Fern & Field",
+      "pass": true,
+      "data": {
+        "x": 14,
+        "z": 10,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit Wavelength Repairs",
+      "pass": true,
+      "data": {
+        "x": 14,
+        "z": -1,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit Hillside Oven",
+      "pass": true,
+      "data": {
+        "x": -13,
+        "z": -1.5,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit Dead Signal Valley station",
+      "pass": true,
+      "data": {
+        "x": -8,
+        "z": -27.7,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit Coppercoil Workshop",
+      "pass": true,
+      "data": {
+        "x": -28,
+        "z": 48,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit Afterglow Arcade",
+      "pass": true,
+      "data": {
+        "x": 28,
+        "z": 48,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit Cinderwatch Observatory",
+      "pass": true,
+      "data": {
+        "x": -43,
+        "z": 34,
+        "feet": 0.4,
+        "ground": 0.4,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit Riverglass Studio",
+      "pass": true,
+      "data": {
+        "x": 43,
+        "z": 25,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit Resonance Hall",
+      "pass": true,
+      "data": {
+        "x": 0,
+        "z": 64,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit ROOT & RIND",
+      "pass": true,
+      "data": {
+        "x": -8.130448186995485,
+        "z": 26.153073372946036,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit SPOKE & SPAR",
+      "pass": true,
+      "data": {
+        "x": 8.5,
+        "z": 26.4,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit STILL LEAF",
+      "pass": true,
+      "data": {
+        "x": -8.5,
+        "z": 38,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit THREAD WEATHER",
+      "pass": true,
+      "data": {
+        "x": 8.5,
+        "z": 38,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit SOFT FREQUENCY",
+      "pass": true,
+      "data": {
+        "x": -8.5,
+        "z": 60,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit POCKET ORBIT",
+      "pass": true,
+      "data": {
+        "x": 8.130448186995485,
+        "z": 59.84692662705396,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit MIST & MEASURE",
+      "pass": true,
+      "data": {
+        "x": -27,
+        "z": 23,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit HEARTH & HOLLOW",
+      "pass": true,
+      "data": {
+        "x": 27,
+        "z": 23,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit Bell-tower plaza",
+      "pass": true,
+      "data": {
+        "x": 1.5,
+        "z": 4,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit River timber bridge",
+      "pass": true,
+      "data": {
+        "x": 0,
+        "z": -10.7,
+        "feet": 0.25666666666666643,
+        "ground": 0.25666666666666643,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Safe actual UI visit Visit Cherry listening garden",
+      "pass": true,
+      "data": {
+        "x": 24,
+        "z": -26.7,
+        "feet": 0,
+        "ground": 0,
+        "blocked": false
+      }
+    },
+    {
+      "label": "Actual keyboard café entrance and exit",
+      "pass": true
+    },
+    {
+      "label": "N switches actual 3D lighting",
+      "pass": true,
+      "data": {
+        "dusk": {
+          "time": "dusk",
+          "fog": "9daaa3"
+        },
+        "night": {
+          "time": "night",
+          "fog": "253e49"
+        }
+      }
+    },
+    {
+      "label": "Quality low",
+      "pass": true
+    },
+    {
+      "label": "Quality medium",
+      "pass": true
+    },
+    {
+      "label": "Quality high",
+      "pass": true
+    },
+    {
+      "label": "Community 24 original names",
+      "pass": true
+    },
+    {
+      "label": "Live community positions and player distance",
+      "pass": true
+    },
+    {
+      "label": "Signal Hunt works after Community, with click and keyboard scoring",
+      "pass": true,
+      "data": {
+        "clickScore": 25,
+        "keyboardScore": 75
+      }
+    },
+    {
+      "label": "Hunt close stops targets and timers",
+      "pass": true
+    },
+    {
+      "label": "Hunt restarts once",
+      "pass": true
+    },
+    {
+      "label": "Relay clearly reports demonstration only",
+      "pass": true
+    },
+    {
+      "label": "Practice durations add to actual slider total",
+      "pass": true,
+      "data": [
+        "72 min",
+        "30 min",
+        "18 min"
+      ]
+    },
+    {
+      "label": "Minimap station pin fast travel",
+      "pass": true,
+      "data": {
+        "x": -8,
+        "z": -27.7,
+        "feet": 0
+      }
+    },
+    {
+      "label": "Minimap empty click does not teleport",
+      "pass": true
+    },
+    {
+      "label": "All ten journal signals collected",
+      "pass": true
+    },
+    {
+      "label": "Journal persists after reload",
+      "pass": true
+    },
+    {
+      "label": "No horizontal overflow 390",
+      "pass": true,
+      "data": {
+        "width": 390,
+        "scroll": 390,
+        "card": {
+          "x": 10,
+          "y": 231.84375,
+          "width": 370,
+          "height": 530.15625,
+          "top": 231.84375,
+          "right": 380,
+          "bottom": 762,
+          "left": 10
+        }
+      }
+    },
+    {
+      "label": "Mobile left touch moves and right touch looks",
+      "pass": true,
+      "data": {
+        "before": {
+          "body": {
+            "x": -13,
+            "z": 16,
+            "feet": 0
+          },
+          "camera": 0
+        },
+        "moved": {
+          "x": -13,
+          "z": 13.802058823529407,
+          "feet": 0
+        },
+        "after": {
+          "body": {
+            "x": -13,
+            "z": 13.802058823529407,
+            "feet": 0
+          },
+          "camera": 0.2
+        }
+      }
+    },
+    {
+      "label": "No horizontal overflow 320",
+      "pass": true,
+      "data": {
+        "width": 320,
+        "scroll": 320,
+        "card": {
+          "x": 10,
+          "y": 145,
+          "width": 300,
+          "height": 513,
+          "top": 145,
+          "right": 310,
+          "bottom": 658,
+          "left": 10
+        }
+      }
+    },
+    {
+      "label": "No horizontal overflow 844",
+      "pass": true,
+      "data": {
+        "width": 844,
+        "scroll": 844,
+        "card": {
+          "x": 14,
+          "y": 166,
+          "width": 480,
+          "height": 150,
+          "top": 166,
+          "right": 494,
+          "bottom": 316,
+          "left": 14
+        }
+      }
+    },
+    {
+      "label": "No uncaught JavaScript errors",
+      "pass": true,
+      "data": []
+    },
+    {
+      "label": "No failed resources",
+      "pass": true,
+      "data": []
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "screenshots": [
+    "explorer-desktop-welcome.png",
+    "explorer-cafe-interior.png",
+    "explorer-cafe-night.png",
+    "explorer-community.png",
+    "explorer-signal-hunt.png",
+    "explorer-desktop-final.png",
+    "explorer-mobile-390-welcome.png",
+    "explorer-mobile-390-directory.png",
+    "explorer-mobile-320-welcome.png",
+    "explorer-mobile-320-directory.png",
+    "explorer-mobile-844-welcome.png",
+    "explorer-mobile-844-directory.png"
+  ],
+  "notes": [
+    "Touch checks use Chromium mobile emulation, not a physical phone."
+  ],
+  "visits": [
+    {
+      "name": "Visit Copper Kettle Café",
+      "x": -13,
+      "z": 16,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit Margin & Moss",
+      "x": -23,
+      "z": 3.2,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit Fern & Field",
+      "x": 14,
+      "z": 10,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit Wavelength Repairs",
+      "x": 14,
+      "z": -1,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit Hillside Oven",
+      "x": -13,
+      "z": -1.5,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit Dead Signal Valley station",
+      "x": -8,
+      "z": -27.7,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit Coppercoil Workshop",
+      "x": -28,
+      "z": 48,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit Afterglow Arcade",
+      "x": 28,
+      "z": 48,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit Cinderwatch Observatory",
+      "x": -43,
+      "z": 34,
+      "feet": 0.4,
+      "ground": 0.4,
+      "blocked": false
+    },
+    {
+      "name": "Visit Riverglass Studio",
+      "x": 43,
+      "z": 25,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit Resonance Hall",
+      "x": 0,
+      "z": 64,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit ROOT & RIND",
+      "x": -8.130448186995485,
+      "z": 26.153073372946036,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit SPOKE & SPAR",
+      "x": 8.5,
+      "z": 26.4,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit STILL LEAF",
+      "x": -8.5,
+      "z": 38,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit THREAD WEATHER",
+      "x": 8.5,
+      "z": 38,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit SOFT FREQUENCY",
+      "x": -8.5,
+      "z": 60,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit POCKET ORBIT",
+      "x": 8.130448186995485,
+      "z": 59.84692662705396,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit MIST & MEASURE",
+      "x": -27,
+      "z": 23,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit HEARTH & HOLLOW",
+      "x": 27,
+      "z": 23,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit Bell-tower plaza",
+      "x": 1.5,
+      "z": 4,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    },
+    {
+      "name": "Visit River timber bridge",
+      "x": 0,
+      "z": -10.7,
+      "feet": 0.25666666666666643,
+      "ground": 0.25666666666666643,
+      "blocked": false
+    },
+    {
+      "name": "Visit Cherry listening garden",
+      "x": 24,
+      "z": -26.7,
+      "feet": 0,
+      "ground": 0,
+      "blocked": false
+    }
+  ],
+  "cafeEntry": {
+    "x": -13,
+    "z": 10.487734999999914,
+    "feet": 0.1183
+  },
+  "cafeExit": {
+    "x": -13,
+    "z": 15.019234999999982,
+    "feet": 0
+  },
+  "pass": true,
+  "additionalSignalHuntCompletion": {
+    "score": 10,
+    "best": 10,
+    "time": "0s",
+    "status": "Transmission complete! Final score: 10 points. Best: 10.",
+    "targets": 0,
+    "overlay": true
+  }
+}

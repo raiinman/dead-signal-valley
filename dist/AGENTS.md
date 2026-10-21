@@ -8,9 +8,13 @@ Provide the complete editable and deployable static town.
 
 The source map in the root README identifies module ownership. `building-test/` contains the shared 15-type Meshy assembly, standalone inspection viewer and measured navigation. `assets/meshy-cafe/` holds the faithful original espresso; vendor directories retain Three.js r128, compatible loaders and licenses.
 
+`town-explorer.js` owns directory/radar/roster data derived from the current world. `studio-widgets.js` owns the studio panel and browser-local activities. `app.js` remains the owner of rendering, movement, audio, lighting and panel lifecycle.
+
 ## Local Contracts
 
 Keep Three.js r128 compatibility and local offline fallback. Preserve source UVs, embedded maps, base color sRGB and linear PBR data maps. Keep café activation atomic after all models and navigation load; retain the complete procedural fallback. Avoid duplicate espresso instances and destructive global mesh conversion. Keep the entrance connected to the town route and furniture collision based on measured geometry.
+
+Keep map travel on verified place pins with safe collision-checked arrivals. Shop, landmark and enterable counts overlap; derive them from the world rather than duplicating coordinates. Resident names and keepers are editorial fictional identities; displayed roles, routines, coordinates and railway state come from the simulation. Label the Relay as a demonstration, and stop activity timers on panel closure or hidden pages. Preserve movement, dusk lighting, mobile jump and audio while revising the HUD.
 
 ## Work Guidance
 

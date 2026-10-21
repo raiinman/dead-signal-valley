@@ -2,13 +2,13 @@
   "files": [
     {
       "path": "dist/AGENTS.md",
-      "bytes": 1431,
-      "sha256": "3262b62bb2b02ccca9acd80901b689134ceb136a62a31676d41482fb34216def"
+      "bytes": 2184,
+      "sha256": "cb37de12f6d8de6a847d859b44102d0f7a42c6d905eda89249fbf9fd4f0a93aa"
     },
     {
       "path": "dist/app.js",
-      "bytes": 19767,
-      "sha256": "428256b8951df8203a5e93103892bb5a65aa1fe901a0864e2766b7214632beb1"
+      "bytes": 22183,
+      "sha256": "b0179df9224b4df18153a6a872b309bfdadf944256a63de2815a9409e06bf125"
     },
     {
       "path": "dist/asset-lighting.js",
@@ -177,8 +177,8 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 6040,
-      "sha256": "e98d8a47ca443f35421c3f5df7dd79bfcff9b7deaa049a79cf9ddf9b1cc3f9d8"
+      "bytes": 24755,
+      "sha256": "8e719f2e392a134f0f71de3a7b20107e7b035cde852b37d8f5f14be5ba4cc5ef"
     },
     {
       "path": "dist/landscape.js",
@@ -211,14 +211,24 @@
       "sha256": "3f292289c489d05d2113946690ee33546a6fe76ca7eff735b662c313ed60b682"
     },
     {
+      "path": "dist/studio-widgets.js",
+      "bytes": 11930,
+      "sha256": "a070e5d546fb4c06436ceaffa0e216de20d0f41b00ae3486342e1bb5496d8c93"
+    },
+    {
       "path": "dist/style.css",
-      "bytes": 10768,
-      "sha256": "74a59e8c7819285a787c081ef0a669f2244ee2f829a752d26ded7873d40b8fec"
+      "bytes": 25325,
+      "sha256": "d90fae0f6825e8cd540f4925ede9980651746b54b9ca1dee99179590d289b180"
     },
     {
       "path": "dist/town-enterable.js",
       "bytes": 13990,
       "sha256": "fde62dfb9f3e50eb595d0ae1b5223daee320d186a33a8d91fd5f72789591f586"
+    },
+    {
+      "path": "dist/town-explorer.js",
+      "bytes": 13130,
+      "sha256": "d7f9ecba9e3bc139b3b40416e3894644a8b3edb29f0c29506ea0646d184e28a8"
     },
     {
       "path": "dist/town-landmarks.js",

@@ -1,6 +1,8 @@
 import {createWorld} from './world.js';
 import {destinations,moveBody,loadJournal} from './simulation.js';
 import {createCafeReflections} from './asset-lighting.js';
+import {createTownExplorer} from './town-explorer.js';
+import {initStudioWidgets} from './studio-widgets.js';
 
 const $=id=>document.getElementById(id),THREE=window.THREE;
 let renderer,scene,camera,world,started=false,overview=true,hidden=false,fly=false;
@@ -12,10 +14,25 @@ const journal=loadJournal({getItem:key=>localStorage.getItem(key)}),reduced=matc
 const overviewTarget=THREE?new THREE.Vector3(0,0,24):null;let orbit=.48,orbitHeight=64,orbitRadius=110;
 const pointers=new Map();let stickId=null,lookId=null,drag=null;
 let audio=null,sound=false,master=null,trainGain=null,windGain=null,volume=.4;
+let explorer=null,widgets=null;
+const panelIds=['settings','journal','places','guild','community'];
+const openPanel=()=>panelIds.find(id=>!$(id).hidden);
+new ResizeObserver(()=>document.documentElement.style.setProperty('--hud-height',`${document.querySelector('.topbar').getBoundingClientRect().height}px`)).observe(document.querySelector('.topbar'));
 
 function toast(message) {clearTimeout(toastTimer);$('toast').hidden=false;$('toast').textContent=message;$('toast').classList.add('visible');toastTimer=setTimeout(()=>$('toast').classList.remove('visible'),5200);}
 function releaseMouse(){if(document.pointerLockElement)document.exitPointerLock();} function requestLookLock(){try{const pending=renderer.domElement.requestPointerLock?.();pending?.catch(()=>toast('Drag the view to look around. Mouse capture is unavailable here.'));}catch{toast('Drag the view to look around.');}}
-function panel(id,open){releaseMouse();$(id).hidden=!open;$(id+'-open')?.setAttribute('aria-expanded',String(open));if(open){$('guide').hidden=true;$('toast').classList.remove('visible');$('toast').hidden=true;for(const other of ['settings','journal','places'])if(other!==id){$(other).hidden=true;$(other+'-open').setAttribute('aria-expanded','false');}$(id).querySelector('button')?.focus();}}
+function panel(id,open){
+  releaseMouse();keys.clear();move.x=move.y=0;
+  for(const other of panelIds){
+    const show=other===id&&open;
+    const changed=$(other).hidden===show;
+    $(other).hidden=!show;$(other+'-open')?.setAttribute('aria-expanded',String(show));
+    if(changed)widgets?.onPanelChange(other,show);
+  }
+  document.body.classList.toggle('panel-open',!!openPanel());
+  if(open){if(id==='places')explorer?.refreshDirectory();$('guide').hidden=true;$('toast').classList.remove('visible');$('toast').hidden=true;$(id).querySelector('input,button')?.focus();}
+  else if(id)$(id+'-open')?.focus();
+}
 function journalUI() {
   $('found-count').textContent=`${journal.size}/${Object.keys(destinations).length}`;$('notes').replaceChildren();
   for(const [id,d] of Object.entries(destinations)) {
@@ -30,7 +47,13 @@ function collect() {
   toast(`${d.title}. ${d.text}`);if(sound)bell(id==='plaza'?392:587.33);releaseMouse();panel('journal',true);
 }
 function visit(id) {
-  const d=destinations[id];if(!d)return;panel('places',false);start(false);body.x=d.x;body.z=d.z;body.feet=world.heightAt(d.x,d.z)||0;vy=0;yaw=d.yaw;pitch=-.02;fly=false;overview=false;$('overview').setAttribute('aria-pressed','false');updateCamera();
+  if(explorer)return explorer.visitPlace(id);
+  const d=destinations[id];if(!d)return;teleportTo(d.x,d.z,d.yaw,d.name);
+}
+function teleportTo(x,z,targetYaw=0,label=''){
+  const ground=world?.heightAt(x,z);if(ground===null||ground===undefined)return false;
+  panel(null,false);start(false);body.x=x;body.z=z;body.feet=ground;vy=0;yaw=targetYaw;pitch=-.02;fly=false;grounded=true;overview=false;$('overview').setAttribute('aria-pressed','false');updateCamera();
+  if(label)toast(`Arrived at ${label}.`);return true;
 }
 function start(lock=true) {
   const first=!started;started=true;overview=false;document.body.classList.add('started');$('welcome').hidden=true;$('overview').setAttribute('aria-pressed','false');
@@ -57,11 +80,12 @@ async function toggleSound() {
       const noise=audio.createBufferSource();noise.buffer=buffer;noise.loop=true;const filter=audio.createBiquadFilter();filter.type='lowpass';filter.frequency.value=800;windGain=audio.createGain();windGain.gain.value=.16;noise.connect(filter);filter.connect(windGain);windGain.connect(master);noise.start();
       const rumble=audio.createOscillator();rumble.type='triangle';rumble.frequency.value=51;trainGain=audio.createGain();trainGain.gain.value=0;rumble.connect(trainGain);trainGain.connect(master);rumble.start();
     }
-    await audio.resume();sound=!sound;master.gain.setTargetAtTime(sound?volume:0,audio.currentTime,.2);$('sound').setAttribute('aria-pressed',String(sound));$('sound').setAttribute('aria-label',sound?'Mute sound':'Enable sound');if(sound)tone(587.33,.6,.025);
+    await audio.resume();sound=!sound;master.gain.setTargetAtTime(sound?volume:0,audio.currentTime,.2);$('sound').setAttribute('aria-pressed',String(sound));$('sound').setAttribute('aria-label',sound?'Mute sound':'Enable sound');$('sound').textContent=`Sound: ${sound?'on':'off'}`;if(sound)tone(587.33,.6,.025);
   } catch {toast('Sound could not start. Try the Sound button again.');}
 }
 function setTime(value) {
   time=value;$('time').value=value;document.body.classList.toggle('night',time==='night');
+  const label={afternoon:'Afternoon',dusk:'Dusk',night:'Night'}[value];$('time-badge').textContent=label;$('time-toggle').textContent=`Light: ${label}`;$('time-toggle').setAttribute('aria-pressed',String(value==='night'));
   const presets={afternoon:{sky:'#93bcc5',horizon:'#e7e3c4',fog:'#b9c9bd',sun:'#ffe1ad',power:1.7,hemi:1.05,practical:.03,exposure:1.05},dusk:{sky:'#6b8799',horizon:'#e6b58e',fog:'#9daaa3',sun:'#ffc48b',power:1.25,hemi:.85,practical:.55,exposure:1.12},night:{sky:'#122b40',horizon:'#45626b',fog:'#253e49',sun:'#9ab4e0',power:.13,hemi:.25,practical:1,exposure:1.05}};
   const p=presets[value];scene.fog.color.set(p.fog);sky.material.uniforms.uTop.value.set(p.sky);sky.material.uniforms.uHorizon.value.set(p.horizon);sky.material.uniforms.uNight.value=value==='night'?1:0;
   sun.color.set(p.sun);sun.intensity=p.power;sun.position.set(value==='dusk'?55:-35,value==='dusk'?18:55,28);hemi.intensity=p.hemi;renderer.toneMappingExposure=p.exposure;
@@ -91,6 +115,8 @@ try {
   hemi=new THREE.HemisphereLight('#c2d8e8','#9a8564',1.15);scene.add(hemi);
   sun=new THREE.DirectionalLight('#ffe1ad',2.3);sun.position.set(-35,55,28);sun.castShadow=true;sun.shadow.camera.left=-58;sun.shadow.camera.right=58;sun.shadow.camera.top=58;sun.shadow.camera.bottom=-58;sun.shadow.camera.near=1;sun.shadow.camera.far=145;sun.shadow.bias=-.00035;sun.shadow.normalBias=.035;sun.target.position.set(0,0,-12);scene.add(sun,sun.target);
   world=createWorld(THREE,scene);cafeReflectionTarget=createCafeReflections(THREE,renderer,.45);world.configureCafeLighting({environment:cafeReflectionTarget.texture});setQuality(matchMedia('(max-width:620px)').matches?'low':'medium');setTime('afternoon');updateCamera();journalUI();
+  widgets=initStudioWidgets({visit,playChime:frequency=>tone(frequency,.45,.025),toast});
+  explorer=createTownExplorer({world,destinations,visit,teleportTo,toast,openPanel:panel,journal});
   $('loading').hidden=true;
   // The loader is pinned to the same release as the renderer.
   const loader=document.createElement('script');loader.src='vendor/GLTFLoader.js';loader.onload=()=>{
@@ -105,18 +131,30 @@ $('overview').onclick=()=>{overview=!overview;$('overview').setAttribute('aria-p
 $('sound').onclick=toggleSound;$('time').onchange=e=>setTime(e.target.value);$('quality').onchange=e=>setQuality(e.target.value);$('volume').oninput=e=>{volume=+e.target.value/100;if(master)master.gain.setTargetAtTime(sound?volume:0,audio.currentTime,.1);};
 $('journal-open').onclick=()=>panel('journal',$('journal').hidden);$('settings-open').onclick=()=>panel('settings',$('settings').hidden);document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>panel(b.dataset.close,false));
 $('places-open').onclick=()=>panel('places',$('places').hidden);
-Object.entries(destinations).forEach(([id,d],i)=>{const button=document.createElement('button');button.dataset.place=id;button.textContent=`${i===9?'0':i+1}  ${d.name}`;button.onclick=()=>visit(id);$('place-list').append(button);});
+$('guild-open').onclick=()=>panel('guild',$('guild').hidden);$('community-open').onclick=()=>panel('community',$('community').hidden);
+$('welcome-directory-btn').onclick=()=>panel('places',true);$('welcome-guild-btn').onclick=()=>panel('guild',true);
+$('time-toggle').onclick=()=>setTime({afternoon:'dusk',dusk:'night',night:'afternoon'}[time]);
+document.querySelector('.skip').onclick=e=>{e.preventDefault();panel('places',true);$('place-search').focus();};
 document.querySelectorAll('[data-place]').forEach(b=>b.onclick=()=>visit(b.dataset.place));$('recover').onclick=()=>{panel('settings',false);visit('cafe');toast('Back at the café. The kettle is still warm.');};
 $('interact').onclick=collect;$('guide-toggle').onclick=$('show-help').onclick=()=>{releaseMouse();$('guide').hidden=!$('guide').hidden;$('guide-toggle').setAttribute('aria-expanded',String(!$('guide').hidden));};$('guide-close').onclick=()=>{$('guide').hidden=true;$('guide-toggle').setAttribute('aria-expanded','false');};
+$('touch-interact').onclick=collect;
 function toggleUI(){hidden=!hidden;document.body.classList.toggle('ui-hidden',hidden);$('restore-ui').hidden=!hidden;}$('restore-ui').onclick=toggleUI;
+$('cinematic-toggle').onclick=()=>{panel(null,false);toggleUI();};
+function toggleFly(){if(!started)start(false);fly=!fly;vy=0;toast(fly?'Flight on. Space rises; Shift descends. F returns to walking.':'Walking again.');if(!fly){const g=world.heightAt(body.x,body.z);if(g===null)visit('cafe');else body.feet=g;}}
+$('fly-toggle').onclick=()=>{panel(null,false);toggleFly();};
 document.addEventListener('keydown',e=>{
+  if(e.ctrlKey||e.metaKey||e.altKey)return;
+  const k=e.key.toLowerCase();
+  if(k==='escape'){e.preventDefault();const active=openPanel();panel(active||null,false);$('guide').hidden=true;keys.clear();return;}
   if(/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
-  const k=e.key.toLowerCase();if(['w','a','s','d',' ','arrowup','arrowdown','arrowleft','arrowright'].includes(k)){e.preventDefault();keys.add(k);}
+  if(e.target.closest('button,a')&&(k===' '||k==='enter'))return;
+  if(!e.repeat){const shortcut={p:'places',g:'guild',r:'community',j:'journal'}[k];if(shortcut){panel(shortcut,$(shortcut).hidden);return;}}
+  if(openPanel())return;
+  if(['w','a','s','d',' ','arrowup','arrowdown','arrowleft','arrowright'].includes(k)){e.preventDefault();keys.add(k);}
   if(e.repeat)return;
   if(k===' '&&started&&!overview&&grounded&&!fly){vy=5;grounded=false;}
-  if(k==='e')collect();if(k==='m')toggleSound();if(k==='h')toggleUI();if(k==='f'&&started){fly=!fly;vy=0;toast(fly?'Flight on. Space rises; Shift descends. F returns to walking.':'Walking again.');if(!fly){const g=world.heightAt(body.x,body.z);if(g===null)visit('cafe');else body.feet=g;}}
+  if(k==='e')collect();if(k==='m')toggleSound();if(k==='h'||k==='c')toggleUI();if(k==='f')toggleFly();if(k==='o')$('overview').click();if(k==='n')$('time-toggle').click();
   if(k.length===1&&'1234567890'.includes(k))visit(Object.keys(destinations)[k==='0'?9:+k-1]);
-  if(k==='escape'){$('guide').hidden=true;for(const id of ['journal','settings','places'])panel(id,false);keys.clear();}
 });
 document.addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));window.addEventListener('blur',()=>{keys.clear();move.x=move.y=0;pointers.clear();drag=null;stickId=lookId=null;$('thumb').style.transform='';});
 document.addEventListener('pointerlockchange',()=>{document.body.classList.toggle('locked',!!document.pointerLockElement);keys.clear();});
@@ -142,7 +180,7 @@ renderer?.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();
 
 function frame(now) {
   requestAnimationFrame(frame);const dt=Math.min((now-last)/1000,.045);last=now;if(document.hidden)return;elapsed+=dt;
-  if(started&&!overview) {
+  if(started&&!overview&&!openPanel()) {
     const forward=(keys.has('w')||keys.has('arrowup')?1:0)-(keys.has('s')||keys.has('arrowdown')?1:0)-move.y;
     const strafe=(keys.has('d')||keys.has('arrowright')?1:0)-(keys.has('a')||keys.has('arrowleft')?1:0)+move.x;
     const len=Math.max(1,Math.hypot(forward,strafe)),speed=(fly?8:keys.has('shift')?5.2:2.65)*dt;
@@ -153,12 +191,14 @@ function frame(now) {
   updateCamera();const train=world.update(reduced?Math.floor(elapsed*10)/10:elapsed,quality,camera.position);sky.material.uniforms.uTime.value=reduced?0:elapsed;
   if(elapsed-lastLight>.5){lastLight=elapsed;const budget=quality==='high'?10:quality==='medium'?6:3;world.lights.sort((a,b)=>a.position.distanceToSquared(camera.position)*(a.userData.priority||1)-b.position.distanceToSquared(camera.position)*(b.userData.priority||1));world.lights.forEach((l,i)=>{l.visible=i<budget;l.intensity=l.visible?l.userData.base*Math.max(l.userData.factor||0,l.userData.minFactor||0):0;});}
   nearest=null;if(started&&!overview&&!fly){for(const [id,d] of Object.entries(destinations)){if(Math.hypot(body.x-d.point[0],body.z-d.point[2])<2.6){nearest=id;break;}}}
-  $('interaction').style.display=nearest?'flex':'none';if(nearest){$('interaction-text').textContent=journal.has(nearest)?'Listen once more':`A signal at ${destinations[nearest].name}`;}
+  $('interaction').hidden=!nearest||!!openPanel();$('touch-interact').hidden=!nearest||!!openPanel();if(nearest){$('interaction-text').textContent=journal.has(nearest)?'Listen once more':`A signal at ${destinations[nearest].name}`;}
   const closest=Object.values(destinations).reduce((a,d)=>Math.hypot(body.x-d.x,body.z-d.z)<Math.hypot(body.x-a.x,body.z-a.z)?d:a);
   const frontage=world.premises.map(p=>({p,d:Math.hypot(Math.max(0,Math.abs(body.x-p.x)-p.w/2),Math.max(0,Math.abs(body.z-p.z)-p.d/2))})).sort((a,b)=>a.d-b.d)[0];
   const zone=frontage.d<3.2?frontage.p.name:Math.hypot(body.x-closest.x,body.z-closest.z)<10?closest.name:'Market street';$('location').textContent=zone;
   $('train-status').textContent=train.phase==='At platform'?`Valley line · departs in ${Math.ceil(train.dwellRemaining)}s`:`Valley line · ${train.phase.toLowerCase()}`;
-  document.querySelectorAll('[data-place]').forEach(b=>b.setAttribute('aria-current',destinations[b.dataset.place].name===zone?'location':'false'));
+  $('community-train-status').textContent=$('train-status').textContent;
+  document.querySelectorAll('[data-place]').forEach(b=>b.setAttribute('aria-current',destinations[b.dataset.place]?.name===zone?'location':'false'));
+  explorer?.update({body,yaw,time,zone,train,overview,camera});
   if(sound&&audio&&trainGain){const distance=Math.hypot(body.x-train.x,body.z+44);trainGain.gain.setTargetAtTime((train.phase==='Arriving'||train.phase==='Departing')?Math.max(0,1-distance/80)*.035:0,audio.currentTime,.2);windGain.gain.setTargetAtTime(body.z< -10&&body.z> -22?.24:.12,audio.currentTime,.5);if(elapsed-lastBird>8&&time!=='night'){lastBird=elapsed;tone(2400,.16,.015);tone(3100,.12,.009,.18);}}
   renderer.render(scene,camera);
 }

@@ -4,6 +4,8 @@
 
 A freely walkable Copperlight valley with 15 shops, seven landmark premises, an operating railway, 24 residents and ten quiet signals to discover. Copper Kettle Café is assembled from individual Meshy architectural parts and furnishings, with a fully enterable room. The workshop and arcade are also enterable.
 
+The explorer HUD includes a searchable 22-place directory, clickable radar map, heading and coordinates, a live community roster and railway board. The Studio & Arcade panel brings together the three studio divisions, Signal Hunt, a local Relay demonstration and a practice-session planner. The studio venues have fast-travel links back into the town.
+
 ![Copper Kettle Café in the town](evidence/modular-cafe-town-exterior.png)
 
 ## Run locally, including offline
@@ -32,6 +34,8 @@ Read [AGENTS.md](AGENTS.md), then [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md). Th
 | File | Owns |
 | --- | --- |
 | `dist/app.js` | Renderer, controls, quality, time, journal and sound |
+| `dist/town-explorer.js` | Directory, safe arrival points, minimap, compass and resident roster |
+| `dist/studio-widgets.js` | Studio tabs, Signal Hunt, Relay demonstration and practice planner |
 | `dist/world.js` | Town layout, shops, residents, fallback café and collision |
 | `dist/modular-cafe.js` | Detailed café placement and measured walkability |
 | `dist/building-test/assets.json` | The separate café parts and their transforms |
@@ -46,7 +50,7 @@ Import any GLB into Blender to edit it. Preserve UVs and embedded material maps 
 
 ## Controls
 
-WASD walk, Shift run, Space jump, mouse capture or drag to look, E listen, F fly, 1-9 and 0 visit places, M mute, H hide UI. Escape releases the mouse. Mobile uses the left thumb pad and right-side drag. Settings offer Afternoon, Dusk, Night and three quality levels. Field notes are saved in the current browser only.
+WASD walk, Shift run, Space jump, mouse capture or drag to look, E listen, F fly, 1-9 and 0 visit places, M mute, H or C hide UI. P opens the directory, G Studio & Arcade, R the community and J the journal. O toggles overview; N cycles Afternoon, Dusk and Night. Escape closes a panel or releases the mouse. Mobile uses the left thumb pad, right-side drag and Jump. Settings retain three quality levels. Field notes and Signal Hunt best scores are saved in the current browser only.
 
 ## Publish
 
@@ -57,5 +61,7 @@ Production is the existing Namecheap/cPanel hosting for `deadsignal.studio`. Pub
 Original Meshy espresso geometry and all three 2K maps remain intact. The 15 café asset types use original accepted model hashes and source textures. Parts are shared between instances, load asynchronously, and switch to a procedural café at distance or on loading failure. The standalone assembly study reuses those assets.
 
 See [asset provenance](docs/ASSETS.md), [runtime hashes](docs/runtime-manifest.json), [integration checks](evidence/cafe-town-integration-qa.json), [design](DESIGN.md) and [materials](MATERIALS.md). Source, collision, entry/exit, destinations, time/quality, mobile emulation, failure fallback and offline fallback were checked. Physical-phone performance and Safari remain unverified.
+
+The explorer update has a [portable browser check](browser-explorer-check.js) and [53-check browser report](evidence/explorer-browser-qa.json), including all 22 directory arrivals, real café walking, touch controls, journal recovery and a complete Signal Hunt round. Root AGENTS.md remains unchanged because its current-build ownership and publication rules still apply; the runtime contract and development source map describe the new modules.
 
 DOX is installed as the AGENTS.md hierarchy with its [upstream license and attribution](docs/dox/README.md). Three.js licensing is retained in the vendor folders. Making this repository public does not assign a new license to the project artwork or generated assets.

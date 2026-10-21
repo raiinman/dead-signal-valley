@@ -1,36 +1,428 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f4efdf"><meta name="description" content="Explore a living Dead Signal Valley: fifteen shops, seven landmarks, a river walk and a working mountain railway.">
-<title>Dead Signal Valley — A Living Town</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%232e5550'/%3E%3Cpath d='M9 28V16l11-8 11 8v12M16 28V18h8v10' fill='none' stroke='%23f4efdf' stroke-width='3'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f0e5">
+<meta name="description" content="Explore Dead Signal Valley: an interactive 3D gaming town in Copperlight Valley with 15 local shops, 7 landmarks, an operating railway, 24 residents, 10 quiet signals, and the Dead Signal Interactive studio guild.">
+<title>Dead Signal Valley | Interactive Town & Studio Guide</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%231d302d'/%3E%3Cpath d='M10 28V14l10-8 10 8v14z' fill='none' stroke='%23f4ead4' stroke-width='2.5'/%3E%3Ccircle cx='20' cy='21' r='3' fill='%23c7924f'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css?v=explorer-20261020">
 </head>
 <body>
-<a class="skip" href="#destinations">Skip to destinations</a>
-<main id="world" aria-label="Interactive three dimensional Dead Signal Valley"><div id="loading" role="status">Opening the valley…</div></main>
-<header class="topbar chrome">
-  <a class="brand" href="#" id="brand-home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 25V13l11-8 11 8v12M12 25V15h8v10M4 26h24"/><path d="M12 8V4m8 4V4"/></svg><span>Dead Signal Valley<small>A little town for lost signals</small></span></a>
-  <nav aria-label="View and sound"><button id="overview" aria-pressed="false">Overview</button><button id="sound" aria-pressed="false" aria-label="Enable sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 4-6 5H2v6h3l6 5V4Zm5 4a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></svg><span>Sound</span></button><button id="journal-open" aria-expanded="false" aria-controls="journal">Field notes <span id="found-count">0/10</span></button><button id="settings-open" aria-expanded="false" aria-controls="settings" aria-label="Open settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16M8 3v6m8 0v6m-6 0v6"/></svg></button></nav>
+<a class="skip" href="#destinations">Skip to town directory</a>
+
+<main id="world" aria-label="Interactive three dimensional Dead Signal Valley">
+  <div id="loading" role="status">
+    <div class="spinner"></div>
+    <span>Opening Copperlight Valley...</span>
+    <small>Loading 15 shops, 7 landmarks, railway &amp; 24 residents</small>
+  </div>
+</main>
+
+<header class="topbar chrome" aria-label="Town Explorer HUD">
+  <div class="brand-cluster">
+    <a class="brand" href="#" id="brand-home" title="Return to town overview">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 25V13l11-8 11 8v12z"/><circle cx="16" cy="18" r="2.5"/></svg>
+      <div>
+        <span>Dead Signal Valley</span>
+        <small id="hud-sub">Copperlight River Town &middot; Tucson Studio Guild</small>
+      </div>
+    </a>
+    <div class="compass-pill" aria-label="Player coordinates and heading">
+      <span class="compass-rose" id="compass-heading">N 00&deg;</span>
+      <span class="coord-readout" id="coord-readout">X: -13 &middot; Z: 16</span>
+      <span class="time-badge" id="time-badge">Afternoon Sun</span>
+    </div>
+  </div>
+
+  <nav class="hud-controls" aria-label="Town directories and world controls">
+    <button aria-controls="places" id="places-open" class="hud-btn" aria-expanded="false" title="Browse all 15 shops and 7 landmarks (Key: P)">
+      <span class="hud-key">P</span> Town Directory <span class="badge-count">22</span>
+    </button>
+    <button aria-controls="guild" id="guild-open" class="hud-btn" aria-expanded="false" title="Dead Signal Interactive studio divisions, mini-games & business info (Key: G)">
+      <span class="hud-key">G</span> Studio &amp; Arcade
+    </button>
+    <button aria-controls="community" id="community-open" class="hud-btn" aria-expanded="false" title="Meet the 24 residents and view the town bulletin board (Key: R)">
+      <span class="hud-key">R</span> Community <span class="badge-count" id="resident-count">24</span>
+    </button>
+    <button aria-controls="journal" id="journal-open" class="hud-btn" aria-expanded="false" title="Collected valley signals and field notes (Key: J)">
+      <span class="hud-key">J</span> Field Journal <span class="badge-count" id="found-count">0/10</span>
+    </button>
+    <button id="overview" class="hud-btn" aria-pressed="true" title="Toggle Orbit Overview / First-Person Walk (Key: O)">Overview</button>
+    <button id="time-toggle" class="hud-btn" aria-pressed="false" title="Cycle Afternoon, Dusk and Night (Key: N)">Light: Afternoon</button>
+    <button id="sound" class="hud-btn" aria-pressed="false" title="Toggle valley river, train and signal audio (Key: M)">Sound: off</button>
+    <button aria-controls="settings" id="settings-open" class="hud-btn icon-only" aria-expanded="false" title="Controls and graphics settings">Settings</button>
+  </nav>
 </header>
-<section id="welcome" class="chrome" aria-labelledby="welcome-title">
-  <h1 id="welcome-title">Find your<br>way home.</h1>
-  <p>Fifteen shops. Seven familiar landmarks.<br>Small signals between the everyday things.</p>
-  <p class="touch-help">Left pad to move. Drag the right side to look. Tap Listen near a signal.</p>
-  <button id="start" class="primary">Walk into the valley <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button>
-  <small>Ten places to visit. Ten quiet signals to find.</small>
+
+<section id="welcome" class="chrome town-charter" aria-labelledby="welcome-title">
+  <div class="charter-stamp">TOWN CHARTER &middot; COPPERLIGHT VALLEY &middot; POP. 24</div>
+  <h1 id="welcome-title">Welcome to Dead Signal Valley.</h1>
+  <p class="charter-lead">
+    A walkable 3D railway and river town built for exploration, community gathering, and playable studio craft.
+    Stroll down Market Street, step inside the modular <strong>Copper Kettle Caf&eacute;</strong>, test inventions at <strong>Coppercoil Workshop</strong>, or play cabinets inside <strong>Afterglow Arcade</strong>.
+  </p>
+  <div class="charter-stats" role="list">
+    <div class="stat-box" role="listitem"><strong>15</strong><span>Local Shops</span></div>
+    <div class="stat-box" role="listitem"><strong>7</strong><span>Landmarks</span></div>
+    <div class="stat-box" role="listitem"><strong>24</strong><span>Residents</span></div>
+    <div class="stat-box" role="listitem"><strong>10</strong><span>Signals</span></div>
+  </div>
+  <p class="touch-help">
+    <strong>Controls:</strong> <kbd>WASD</kbd> walk &middot; <kbd>Shift</kbd> run &middot; <kbd>Space</kbd> jump &middot; <kbd>Drag / Mouse</kbd> look &middot; <kbd>E</kbd> listen &middot; <kbd>F</kbd> fly &middot; <kbd>1-0</kbd> fast travel.
+    On touch screens, use the left pad to walk and drag the right side to look.
+  </p>
+  <div class="charter-actions">
+    <button id="start" class="primary">
+      Walk into the valley
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
+    <div class="charter-subactions">
+      <button type="button" class="secondary-btn" id="welcome-directory-btn">Browse Town Directory</button>
+      <button type="button" class="secondary-btn" id="welcome-guild-btn">Studio &amp; Mini-Games</button>
+    </div>
+  </div>
+  <small>Independent interactive entertainment town by Michael Arlotta &middot; Dead Signal Interactive (Tucson, AZ).</small>
 </section>
-<aside id="settings" class="panel chrome" hidden aria-labelledby="settings-title"><div class="panel-head"><h2 id="settings-title">Make yourself at home</h2><button data-close="settings" aria-label="Close settings">×</button></div><label for="time">Light in the valley</label><select id="time"><option value="afternoon">Afternoon</option><option value="dusk">Dusk</option><option value="night">Night</option></select><label for="quality">Detail</label><select id="quality"><option value="high">High</option><option value="medium" selected>Medium</option><option value="low">Low</option></select><label for="volume">Ambience volume</label><input id="volume" type="range" min="0" max="100" value="40"><button id="recover">Return to the café</button><p>WASD move · Shift run · Space jump<br>Mouse look · F fly · E listen<br>1–9 and 0 visit places · M mute · H hide controls<br>Escape releases the mouse.</p><button id="show-help">Show walking guide</button></aside>
-<aside id="journal" class="panel chrome" hidden aria-labelledby="journal-title"><div class="panel-head"><h2 id="journal-title">Signals around the valley</h2><button data-close="journal" aria-label="Close field notes">×</button></div><p>Slow down. Every place has something to say.</p><ol id="notes"></ol><p class="save-note" id="save-note">Your field notes stay in this browser.</p></aside>
-<aside id="places" class="panel chrome" hidden aria-labelledby="places-title"><div class="panel-head"><h2 id="places-title">Around the valley</h2><button data-close="places" aria-label="Close places">×</button></div><p>Seven landmarks, a market street, and the river between them. Choose a place to begin.</p><nav id="place-list" aria-label="All town destinations"></nav><p>Café, workshop and arcade doors are open. Every shop has a window into village life.</p></aside>
-<div id="toast" role="status" aria-live="polite"></div>
-<div id="interaction"><span id="interaction-text"></span><button id="interact">Listen <kbd>E</kbd></button></div>
-<footer class="chrome"><div class="where"><span class="live-dot"></span><span id="location">Along the river road</span><small id="train-status">The valley line is running</small></div><nav id="destinations" aria-label="Route destinations"><button data-place="cafe"><span>1</span>Café</button><i></i><button data-place="plaza"><span>2</span>Bell plaza</button><i></i><button data-place="bridge"><span>3</span>Timber bridge</button><i></i><button data-place="station"><span>4</span>Station</button></nav><button id="places-open" aria-expanded="false" aria-controls="places">All places</button><button id="guide-toggle" aria-expanded="false" aria-controls="guide">Walking guide</button></footer>
-<div id="guide" class="chrome" hidden><strong>Make a little room for wandering.</strong><p>WASD to walk. Drag to look, or click the view to use your mouse. Press E near a signal. Escape lets you use the menus.</p><p class="touch-help">On a phone: move with the left thumb pad, drag the right side to look, and tap Listen near a signal.</p><button id="guide-close">Got it</button></div>
-<div id="touch-controls"><div id="stick" aria-label="Movement thumb pad"><div id="thumb"></div></div><button id="touch-jump" aria-label="Jump">Jump</button></div>
-<button id="restore-ui" hidden>Show controls</button><div id="crosshair" aria-hidden="true"></div>
+
+<aside id="minimap-card" class="chrome minimap-card" aria-label="Interactive Valley Minimap">
+  <div class="minimap-head">
+    <span>VALLEY RADAR</span>
+    <span id="nearest-label">Copper Kettle Caf&eacute;</span>
+  </div>
+  <canvas id="minimap-canvas" role="img" aria-label="Valley map with town locations. Use the Town Directory for keyboard fast travel." width="210" height="150" title="Click any landmark or shop pin to fast-travel"></canvas>
+  <div class="minimap-legend">
+    <span><i class="dot-cafe"></i> Enterable</span>
+    <span><i class="dot-shop"></i> Shop</span>
+    <span><i class="dot-signal"></i> Signal</span>
+  </div>
+</aside>
+
+<aside id="places" class="panel chrome" hidden aria-labelledby="places-title">
+  <div class="panel-head">
+    <div>
+      <span class="panel-kicker">TOWN SURVEY &amp; COMMERCE</span>
+      <h2 id="places-title">Town Directory</h2>
+    </div>
+    <button class="close panel-close" data-close="places" aria-label="Close Town Directory">&times;</button>
+  </div>
+  <p class="panel-sub">Select any destination to fast-travel straight to its doorstep, or filter by town district and shop type.</p>
+  <div class="filter-bar" id="destinations">
+    <input type="search" id="place-search" placeholder="Search shops, goods, landmarks..." aria-label="Search town directory">
+    <div class="filter-pills" role="group">
+      <button type="button" class="filter-chip active" data-filter="all">All places</button>
+      <button type="button" class="filter-chip" data-filter="enterable">Enterable</button>
+      <button type="button" class="filter-chip" data-filter="landmark">Landmarks &amp; Signals</button>
+      <button type="button" class="filter-chip" data-filter="shop">Shops</button>
+    </div>
+  </div>
+  <div id="place-list" class="directory-list" role="list"></div>
+</aside>
+
+<aside id="guild" class="panel panel-wide chrome" hidden aria-labelledby="guild-title">
+  <div class="panel-head">
+    <div>
+      <span class="panel-kicker">DEAD SIGNAL INTERACTIVE &middot; TUCSON, AZ</span>
+      <h2 id="guild-title">Studio Guild, Business Info &amp; Town Arcade</h2>
+    </div>
+    <button class="close panel-close" data-close="guild" aria-label="Close Studio Guild">&times;</button>
+  </div>
+  <p class="panel-sub">
+    Dead Signal is a veteran-founded independent studio in Tucson, Arizona created by Michael Arlotta. Instead of a static brochure, our three studio frequencies live inside the buildings of Dead Signal Valley.
+  </p>
+
+  <div class="guild-tabs" role="group">
+    <button type="button" class="guild-tab active" data-gtab="divisions">3 Studio Divisions</button>
+    <button type="button" class="guild-tab" data-gtab="signal-hunt">Play Signal Hunt</button>
+    <button type="button" class="guild-tab" data-gtab="relay-tool">DSI Relay &amp; Sweeper</button>
+    <button type="button" class="guild-tab" data-gtab="esports">Youth Esports Planner</button>
+    <button type="button" class="guild-tab" data-gtab="charter">Company &amp; Contact</button>
+  </div>
+
+  <div class="guild-pane" id="gtab-divisions">
+    <div class="freq-card">
+      <div class="freq-header">
+        <span class="freq-mhz">91.2 MHz &middot; DIVISION 01</span>
+        <span class="freq-loc">Town Hall: Resonance Hall &amp; Riverglass Studio</span>
+      </div>
+      <h3>Fortnite Experiences (Built for Another Round)</h3>
+      <p>Readable spaces, deliberate routes, and moments that bring players back. We study how a 3D environment becomes a competitive or social place worth playing.</p>
+      <ul class="project-tags">
+        <li><strong>Environment Studies (R&amp;D):</strong> Spatial layout, sightline flow, and courtyard readability studies.</li>
+        <li><strong>Scrapline &amp; Poolday / Gun Game:</strong> Fast-paced arena and combat loop experiments.</li>
+      </ul>
+      <div class="card-actions">
+        <button type="button" class="action-link" data-visit="arena">Teleport to Resonance Hall &rarr;</button>
+        <button type="button" class="action-link" data-visit="studio">Visit Riverglass Studio &rarr;</button>
+      </div>
+    </div>
+
+    <div class="freq-card">
+      <div class="freq-header">
+        <span class="freq-mhz">97.6 MHz &middot; DIVISION 02</span>
+        <span class="freq-loc">Town Hall: Afterglow Arcade &amp; Coppercoil Workshop</span>
+      </div>
+      <h3>Web Games &amp; Game Technology (Make the Connection)</h3>
+      <p>Browser games that load fast and tools that connect a creative workflow. Built locally, verified deterministically, and playable right inside the town arcade.</p>
+      <ul class="project-tags">
+        <li><strong>Operation Sweeper (minesweeper.life):</strong> Web game with an exact dense-board logical solver and native tutorials.</li>
+        <li><a href="https://minesweeper.life" target="_blank" rel="noopener">Play Operation Sweeper</a></li>
+        <li><strong>Signal Hunt:</strong> 30-second observatory frequency catcher playable in the tab above.</li>
+        <li><strong>DSI Relay &amp; MCP Watchtower:</strong> Developer workflow diagnostics and local verification tools.</li>
+      </ul>
+      <div class="card-actions">
+        <button type="button" class="action-link" data-visit="arcade">Teleport to Afterglow Arcade &rarr;</button>
+        <button type="button" class="action-link" data-visit="workshop">Visit Coppercoil Workshop &rarr;</button>
+      </div>
+    </div>
+
+    <div class="freq-card">
+      <div class="freq-header">
+        <span class="freq-mhz">104.3 MHz &middot; DIVISION 03</span>
+        <span class="freq-loc">Town Hall: Bell-Tower Plaza &amp; Valley Station</span>
+      </div>
+      <h3>Youth Esports Development (The Next Generation)</h3>
+      <p>Talent needs more than a fast computer. Our Tucson pilot program brings dependable hardware, structured practice rhythms, and responsible mentorship into one path.</p>
+      <ul class="project-tags">
+        <li><strong>Three Foundations:</strong> Dependable competitive setup (Equipment), balanced session structure (Practice), and family/player guidance (Support).</li>
+        <li><strong>Status:</strong> Planning stage pilot in Tucson, AZ. No donations or payments are solicited on this site.</li>
+      </ul>
+      <div class="card-actions">
+        <button type="button" class="action-link" data-visit="plaza">Teleport to Bell-Tower Plaza &rarr;</button>
+        <button type="button" class="action-link" data-visit="station">Visit Valley Station &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="guild-pane" id="gtab-signal-hunt" hidden>
+    <div class="arcade-cabinet">
+      <div class="cabinet-marquee">
+        <span>AFTERGLOW ARCADE &middot; CABINET #01</span>
+        <strong>SIGNAL HUNT (30s OBSERVATORY CHALLENGE)</strong>
+      </div>
+      <p class="cabinet-help">Catch amber signals (+10 pts) and blue harmonic bursts (+25 pts) before the 30-second transmission window closes. Keep your streak alive!</p>
+      <div class="hunt-scoreboard">
+        <div><small>SCORE</small><strong id="hunt-score">0</strong></div>
+        <div><small>TIME</small><strong id="hunt-time">30s</strong></div>
+        <div><small>STREAK</small><strong id="hunt-streak">&times;1</strong></div>
+        <div><small>BEST</small><strong id="hunt-best">0</strong></div>
+      </div>
+      <div id="hunt-stage" class="hunt-stage" aria-label="Signal Hunt playfield">
+        <div id="hunt-overlay" class="hunt-overlay">
+          <p id="hunt-status-text">Ready at Cinderwatch Observatory receiver.</p>
+          <button type="button" id="hunt-start-btn" class="primary">Start 30s Signal Hunt</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="guild-pane" id="gtab-relay-tool" hidden>
+    <div class="relay-box">
+      <span class="panel-kicker">COPPERCOIL WORKSHOP &middot; INSTRUMENT 02</span>
+      <h3>DSI Relay : Local Request &rarr; Process &rarr; Evidence</h3>
+      <p>Explore a simulated request, process and evidence flow. This browser-only demonstration does not run hardware checks, a board solver or network diagnostics.</p>
+      <div class="relay-controls">
+        <select id="relay-preset" aria-label="Select diagnostic payload">
+          <option value="cafe">Caf&eacute; asset review example</option>
+          <option value="sweeper">Operation Sweeper solver example</option>
+          <option value="beacon">Valley signal dispatch example</option>
+        </select>
+        <button type="button" id="relay-send-btn" class="primary">Send a Signal &rarr;</button>
+      </div>
+      <div class="relay-steps" id="relay-steps">
+        <div class="relay-step" data-step="request"><strong>1. REQUEST</strong><span id="relay-req-out">Ready. Select a payload and send a signal.</span></div>
+        <div class="relay-step" data-step="process"><strong>2. PROCESS</strong><span id="relay-proc-out">Awaiting local dispatch...</span></div>
+        <div class="relay-step" data-step="evidence"><strong>3. EVIDENCE</strong><span id="relay-ev-out">No trace recorded yet.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="guild-pane" id="gtab-esports" hidden>
+    <div class="esports-box">
+      <span class="panel-kicker">TRAINING STUDIO &middot; 104.3 MHz</span>
+      <h3>Build a Balanced Practice Session</h3>
+      <p>Adjust total session length to calculate a sustainable rhythm of focused drills, VOD/match review, and physical reset breaks.</p>
+      <label class="slider-label" for="practice-slider">
+        Session Length: <strong id="practice-total-label">60 MIN</strong>
+      </label>
+      <input type="range" id="practice-slider" min="30" max="120" step="5" value="60">
+      <div class="rhythm-grid">
+        <div class="rhythm-card">
+          <strong id="rhythm-practice">36 min</strong>
+          <span>PRACTICE (60%)</span>
+          <small>Mechanics, communication &amp; deliberate in-game reps</small>
+        </div>
+        <div class="rhythm-card">
+          <strong id="rhythm-review">15 min</strong>
+          <span>REVIEW (25%)</span>
+          <small>Replay analysis, decision check &amp; positioning notes</small>
+        </div>
+        <div class="rhythm-card">
+          <strong id="rhythm-breaks">9 min</strong>
+          <span>BREAKS (15%)</span>
+          <small>Eye rest, hydration, posture &amp; wrist reset</small>
+        </div>
+      </div>
+      <div class="foundation-pills">
+        <div><strong>Equipment:</strong> Dependable high-refresh monitor, ergonomic peripherals, and stable local network.</div>
+        <div><strong>Practice:</strong> Structured sessions with clear goals instead of endless unstructured grinding.</div>
+        <div><strong>Support:</strong> Transparent scheduling and family-first accountability.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="guild-pane" id="gtab-charter" hidden>
+    <div class="charter-info">
+      <h3>Independent by Design &middot; Tucson, Arizona</h3>
+      <p>Dead Signal Interactive LLC is a veteran-founded studio led by Michael Arlotta in Tucson, Arizona. We build walkable 3D places to play, practical web game tools, and a structured path for emerging competitors.</p>
+      <div class="timeline-grid">
+        <div class="timeline-col">
+          <strong>PAST</strong>
+          <p>Poolday / Gun Game experiments, early Blender &amp; Three.js observatory prototypes, and foundational spatial studies.</p>
+        </div>
+        <div class="timeline-col">
+          <strong>PRESENT</strong>
+          <p>Dead Signal Valley interactive 3D town (15 shops, modular Meshy caf&eacute;, railway), Operation Sweeper solver, and DSI Relay.</p>
+        </div>
+        <div class="timeline-col">
+          <strong>FUTURE</strong>
+          <p>Expanded enterable valley premises, Fortnite Scrapline arena release, and the Tucson Youth Esports pilot cohort.</p>
+        </div>
+      </div>
+      <div class="contact-ledger">
+        <div><strong>Founder &amp; Lead:</strong> Michael Arlotta (Tucson, Arizona)</div>
+        <div><strong>Studio Channel:</strong> <a href="mailto:michael@deadsignal.studio">michael@deadsignal.studio</a></div>
+        <div><strong>Repository:</strong> <a href="https://github.com/raiinman/dead-signal-valley" target="_blank" rel="noopener">github.com/raiinman/dead-signal-valley</a></div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<aside id="community" class="panel chrome" hidden aria-labelledby="community-title">
+  <div class="panel-head">
+    <div>
+      <span class="panel-kicker">VALLEY CENSUS &amp; TIMETABLE</span>
+      <h2 id="community-title">Community &amp; 24 Residents</h2>
+    </div>
+    <button class="close panel-close" data-close="community" aria-label="Close Community Panel">&times;</button>
+  </div>
+  <p class="panel-sub">Twenty-four neighbors keep the shops, railway, and studios running. See each neighbor’s role, routine and live distance while the town carries on around you.</p>
+
+  <div class="bulletin-card">
+    <strong>VALLEY RAILWAY &amp; COMMUNITY BOARD</strong>
+    <div class="timetable-row"><span>Valley local</span><span id="community-train-status">The line is running</span></div>
+    <div class="timetable-row"><span>At the platform</span><span>14-second station stop</span></div>
+    <p>Meet at Bell-tower Plaza, browse the market, or take a listening break beside the cherry tree.</p>
+  </div>
+
+  <div id="resident-list" class="resident-list" role="list"></div>
+</aside>
+
+<aside id="journal" class="panel chrome" hidden aria-labelledby="journal-title">
+  <div class="panel-head">
+    <div>
+      <span class="panel-kicker">RECEIVER LOG &middot; COPPERLIGHT ROUTE</span>
+      <h2 id="journal-title">Signal Field Journal</h2>
+    </div>
+    <button class="close panel-close" data-close="journal" aria-label="Close Field Journal">&times;</button>
+  </div>
+  <p class="panel-sub">Walk up to any of the 10 signal beacons across the valley and press <kbd>E</kbd> (or tap Listen) to record its transmission.</p>
+  <ul id="notes" class="journal-list"></ul>
+  <small id="save-note" class="save-note">Progress saved locally in your browser (dsv-river-route-v1).</small>
+</aside>
+
+<aside id="settings" class="panel chrome" hidden aria-labelledby="settings-title">
+  <div class="panel-head">
+    <div>
+      <span class="panel-kicker">EXPLORER CONFIGURATION</span>
+      <h2 id="settings-title">Settings &amp; Controls</h2>
+    </div>
+    <button class="close panel-close" data-close="settings" aria-label="Close Settings">&times;</button>
+  </div>
+  <div class="settings-group">
+    <label for="quality">Graphics Quality</label>
+    <select id="quality">
+      <option value="low">Low (Battery Saver)</option>
+      <option value="medium" selected>Medium (Balanced)</option>
+      <option value="high">High (Sharp Shadows &amp; Reflections)</option>
+    </select>
+  </div>
+  <div class="settings-group">
+    <label for="time">Valley Lighting</label>
+    <select id="time">
+      <option value="afternoon" selected>Afternoon Copper Sun</option>
+      <option value="dusk">Cool Evening &amp; Copper Lamps</option>
+      <option value="night">Night Paper &amp; Warm Lanterns</option>
+    </select>
+  </div>
+  <div class="settings-group">
+    <label for="volume">Soundscape Volume</label>
+    <input type="range" id="volume" min="0" max="100" step="5" value="40">
+  </div>
+  <div class="settings-toggles">
+    <button type="button" id="fly-toggle" class="secondary-btn">Toggle Fly Mode (F)</button>
+    <button type="button" id="cinematic-toggle" class="secondary-btn">Hide HUD (H / C)</button>
+    <button type="button" id="recover" class="secondary-btn">Reset to Copper Kettle Caf&eacute;</button>
+  </div>
+  <button id="show-help" class="secondary-btn">Show walking guide</button>
+  <div class="keybind-table">
+    <div><kbd>WASD</kbd> / Arrows : Walk</div>
+    <div><kbd>Shift</kbd> : Run &middot; <kbd>Space</kbd> : Jump</div>
+    <div><kbd>E</kbd> : Listen / Record Signal</div>
+    <div><kbd>1-9, 0</kbd> : Fast-Travel to 10 Landmarks</div>
+    <div><kbd>P</kbd> : Directory &middot; <kbd>G</kbd> : Studio Guild</div>
+    <div><kbd>R</kbd> : Residents &middot; <kbd>J</kbd> : Journal</div>
+  </div>
+</aside>
+
+<div id="toast" role="status" aria-live="polite" hidden></div>
+
+<div id="interaction" class="interaction-bar" hidden>
+  <span id="interaction-text">Signal nearby</span>
+  <button id="interact">Listen <kbd>E</kbd></button>
+</div>
+
+<footer class="chrome bottom-bar">
+  <div class="where">
+    <span class="live-dot"></span>
+    <div>
+      <strong id="location">Along the river road</strong>
+      <small id="train-status"></small><small id="status-val">Exploring Copperlight Valley &middot; Press P for Town Directory</small>
+    </div>
+  </div>
+  <nav class="quick-bar" aria-label="Quick teleport keys 1 to 0">
+    <button type="button" class="quick-slot" data-place="cafe" title="1: Copper Kettle Cafe">1 Caf&eacute;</button>
+    <button type="button" class="quick-slot" data-place="plaza" title="2: Bell-tower Plaza">2 Plaza</button>
+    <button type="button" class="quick-slot" data-place="bridge" title="3: River Timber Bridge">3 Bridge</button>
+    <button type="button" class="quick-slot" data-place="station" title="4: Valley Station">4 Station</button>
+    <button type="button" class="quick-slot" data-place="workshop" title="5: Coppercoil Workshop">5 Workshop</button>
+    <button type="button" class="quick-slot" data-place="arcade" title="6: Afterglow Arcade">6 Arcade</button>
+    <button type="button" class="quick-slot" data-place="observatory" title="7: Cinderwatch Observatory">7 Dish</button>
+    <button type="button" class="quick-slot" data-place="studio" title="8: Riverglass Studio">8 Studio</button>
+    <button type="button" class="quick-slot" data-place="arena" title="9: Resonance Hall">9 Hall</button>
+    <button type="button" class="quick-slot" data-place="garden" title="0: Cherry Listening Garden">0 Garden</button>
+  </nav>
+  <button id="guide-toggle" class="hud-btn" aria-expanded="false" aria-controls="guide">Walking guide</button>
+</footer>
+
+<div id="guide" class="chrome" hidden>
+  <strong>Explore the Town &amp; Businesses</strong>
+  <p>WASD to walk. Drag or click to look. Press P for all 15 shops or G for Studio &amp; Arcade. Use the left thumb pad and drag on the right on touch screens.</p><button id="guide-close" class="secondary-btn">Got it</button>
+</div>
+
+<div id="touch-controls">
+  <button id="touch-jump" class="chrome" aria-label="Jump">Jump</button>
+  <div id="stick" aria-label="Movement thumb pad"><div id="thumb"></div></div>
+  <button id="touch-interact" class="chrome" hidden>Listen</button>
+</div>
+
+<button id="restore-ui" class="chrome" hidden>Exit Cinematic (Show HUD)</button>
+<div id="crosshair" aria-hidden="true"></div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>if(!window.THREE){document.write('<script src="vendor/three-r128.min.js"><\/script>')}</script>
-<script type="module" src="app.js"></script>
-</body></html>
+<script type="module" src="app.js?v=explorer-20261020"></script>
+</body>
+</html>
+

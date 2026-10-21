@@ -8,6 +8,10 @@ Start with root AGENTS.md, then the contract for the files being changed. Run `n
 
 The main café's manifest origin is translated to `(-13, 0.12, 9.5)`, placing its front entrance at town z=13. The local walk grid accounts for actual model geometry and furniture. Maintain that connection to the sidewalk. The world keeps a complete procedural café until all detailed assets and navigation are ready. It also uses that fallback at distance. The espresso must have only one visible detailed instance.
 
+`town-explorer.js` derives 22 unique directory entries from 19 premises plus the plaza, bridge and garden. The 15-shop and 7-landmark-premises sets overlap at café/workshop/arcade. The map uses those live positions, and fast travel checks height and collision at each frontage. Editorial character identities are attached to stable resident indices; their live roles and routes remain authoritative.
+
+`studio-widgets.js` owns the Studio & Arcade tabs. Signal Hunt uses a monotonic 30-second deadline, bounded targets and browser-local best scores. Relay is a labeled simulation, not hardware or solver verification. The practice calculator allocates the full selected session between practice, review and breaks. `app.js` notifies activity lifecycle changes, blocks walking while a panel is open and retains the existing game loop and PBR model loading.
+
 ## Models
 
 Edit individual GLBs in Blender or another glTF editor. Their PBR textures are embedded. Architectural and furniture transforms live in `dist/building-test/assets.json`; repeated objects share meshes. The original espresso is `dist/assets/meshy-cafe/copperlight-espresso-faithful.glb`. Preserve base color sRGB and linear normal/metallic-roughness data. Avoid destructive global decimation, repainting or material replacement.

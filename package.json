@@ -8,7 +8,7 @@
   },
   "scripts": {
     "serve": "node tools/serve.mjs",
-    "test": "node test.mjs && node test-espresso-fidelity.mjs && node test-cafe-town.mjs && node dist/building-test/navigation.test.mjs && node dist/building-test/assets.test.mjs && node dist/building-test/layout.test.mjs",
+    "test": "node test.mjs && node test-espresso-fidelity.mjs && node test-cafe-town.mjs && node dist/building-test/navigation.test.mjs && node dist/building-test/assets.test.mjs && node dist/building-test/layout.test.mjs && node test-town-explorer.mjs && node test-studio-widgets.mjs",
     "manifest": "node tools/write-manifest.mjs",
     "verify:assets": "node tools/verify-runtime.mjs"
   }

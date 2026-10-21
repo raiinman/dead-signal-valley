@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import{validateGrid,floorAt,standingHeight,move}from'./navigation.js';
+const grid=validateGrid({origin:[-5,-5],step:.1,nx:100,nz:100,cells:Array(10000).fill(0)});
+for(let z=0;z<100;z++)for(let x=49;x<52;x++)if(z<40||z>60)grid.cells[z*100+x]=null;
+let body={x:-1,y:0,z:-2};move(grid,body,3,0);assert(body.x<-.17,'Wall blocks movement, including large movement tunneling.');
+body={x:-1,y:0,z:0};move(grid,body,3,0);assert(Math.abs(body.x-2)<1e-6,'Actual opening permits movement.');
+assert.equal(floorAt(grid,5,0),null);assert.equal(standingHeight(grid,4.95,0,0),null,'Capsule stays inside grid.');
+for(let z=0;z<100;z++)for(let x=70;x<100;x++)grid.cells[z*100+x]=.25;
+body={x:1.6,y:0,z:0};move(grid,body,1,0);assert.equal(body.y,.25,'Small floor step is walkable.');
+for(let z=0;z<100;z++)for(let x=80;x<100;x++)grid.cells[z*100+x]=1;
+move(grid,body,2,0);assert(body.x<2.83,'High ledge is blocked.');
+assert.throws(()=>validateGrid({...grid,cells:[0]}));assert.throws(()=>validateGrid({...grid,step:0}));
+console.log('Navigation: doorway, walls, capsule, steps, ledges and malformed grid checks passed.');

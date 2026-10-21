@@ -1,0 +1,934 @@
+{
+  "title": "Copper Kettle Café · Individual asset assembly",
+  "outside": [
+    0,
+    5.5
+  ],
+  "inside": [
+    0,
+    1
+  ],
+  "validation": {
+    "status": "passed",
+    "message": "Measured floor, doorway and furniture clearance are ready. Walk inside the assembled cafe or inspect individual assets."
+  },
+  "orbit": {
+    "target": [
+      0,
+      1.8,
+      0
+    ],
+    "distance": 15,
+    "yaw": 0.55,
+    "pitch": 0.3
+  },
+  "lights": [
+    [
+      -2,
+      2.7,
+      -1,
+      1,
+      5
+    ],
+    [
+      2,
+      2.7,
+      -1,
+      1,
+      5
+    ],
+    [
+      0,
+      2.7,
+      2,
+      0.8,
+      5
+    ]
+  ],
+  "assets": [
+    {
+      "id": "floor-panel",
+      "name": "Timber floor panel",
+      "fit": "axisScale",
+      "targetSize": [
+        8,
+        0.12,
+        7
+      ],
+      "instances": [
+        {
+          "position": [
+            0,
+            -0.12,
+            0
+          ]
+        }
+      ],
+      "model": "./assets/ck_floor_panel-original.glb"
+    },
+    {
+      "id": "wall-panel",
+      "name": "Plain plaster wall panel",
+      "fit": "axisScale",
+      "targetSize": [
+        1,
+        3.2,
+        0.18
+      ],
+      "instances": [
+        {
+          "position": [
+            0,
+            0,
+            -3.5
+          ],
+          "scale": [
+            8,
+            1,
+            1
+          ]
+        },
+        {
+          "position": [
+            -4,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            1.570796326795,
+            0
+          ],
+          "scale": [
+            7,
+            1,
+            1
+          ]
+        },
+        {
+          "position": [
+            4,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            1.570796326795,
+            0
+          ],
+          "scale": [
+            7,
+            1,
+            1
+          ]
+        },
+        {
+          "position": [
+            -3.75,
+            0,
+            3.5
+          ],
+          "scale": [
+            0.5,
+            1,
+            1
+          ]
+        },
+        {
+          "position": [
+            -1.35,
+            0,
+            3.5
+          ],
+          "scale": [
+            0.3,
+            1,
+            1
+          ]
+        },
+        {
+          "position": [
+            1.35,
+            0,
+            3.5
+          ],
+          "scale": [
+            0.3,
+            1,
+            1
+          ]
+        },
+        {
+          "position": [
+            3.75,
+            0,
+            3.5
+          ],
+          "scale": [
+            0.5,
+            1,
+            1
+          ]
+        },
+        {
+          "position": [
+            -2.5,
+            0,
+            3.5
+          ],
+          "scale": [
+            2,
+            0.25,
+            1
+          ]
+        },
+        {
+          "position": [
+            2.5,
+            0,
+            3.5
+          ],
+          "scale": [
+            2,
+            0.25,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            2.5,
+            3.5
+          ],
+          "scale": [
+            8,
+            0.21875,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            3.2,
+            -3.5
+          ],
+          "scale": [
+            7.2,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            3.32,
+            -3.5
+          ],
+          "scale": [
+            6.56,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            3.44,
+            -3.5
+          ],
+          "scale": [
+            5.92,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            3.56,
+            -3.5
+          ],
+          "scale": [
+            5.28,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            3.68,
+            -3.5
+          ],
+          "scale": [
+            4.64,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            3.8,
+            -3.5
+          ],
+          "scale": [
+            4,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            3.92,
+            -3.5
+          ],
+          "scale": [
+            3.36,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            4.04,
+            -3.5
+          ],
+          "scale": [
+            2.72,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            4.16,
+            -3.5
+          ],
+          "scale": [
+            2.08,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            4.28,
+            -3.5
+          ],
+          "scale": [
+            1.44,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            4.4,
+            -3.5
+          ],
+          "scale": [
+            0.8,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            4.52,
+            -3.5
+          ],
+          "scale": [
+            0.16,
+            0.009375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            3.2,
+            3.5
+          ],
+          "scale": [
+            7.2,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            3.32,
+            3.5
+          ],
+          "scale": [
+            6.56,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            3.44,
+            3.5
+          ],
+          "scale": [
+            5.92,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            3.56,
+            3.5
+          ],
+          "scale": [
+            5.28,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            3.68,
+            3.5
+          ],
+          "scale": [
+            4.64,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            3.8,
+            3.5
+          ],
+          "scale": [
+            4,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            3.92,
+            3.5
+          ],
+          "scale": [
+            3.36,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            4.04,
+            3.5
+          ],
+          "scale": [
+            2.72,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            4.16,
+            3.5
+          ],
+          "scale": [
+            2.08,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            4.28,
+            3.5
+          ],
+          "scale": [
+            1.44,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            4.4,
+            3.5
+          ],
+          "scale": [
+            0.8,
+            0.0375,
+            1
+          ]
+        },
+        {
+          "position": [
+            0,
+            4.52,
+            3.5
+          ],
+          "scale": [
+            0.16,
+            0.009375,
+            1
+          ]
+        }
+      ],
+      "model": "./assets/ck_plaster_slab_v2-cleaned.glb"
+    },
+    {
+      "id": "roof-panel",
+      "name": "Terracotta roof panel",
+      "fit": "axisScale",
+      "targetSize": [
+        4.5,
+        0.14,
+        7.5
+      ],
+      "instances": [
+        {
+          "position": [
+            -2,
+            3.8,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0.35877067027
+          ]
+        },
+        {
+          "position": [
+            2,
+            3.8,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.35877067027
+          ]
+        }
+      ],
+      "model": "./assets/ck_roof_panel-original.glb"
+    },
+    {
+      "id": "timber-post",
+      "name": "Single timber post",
+      "targetSize": [
+        0.2,
+        3.2,
+        0.2
+      ],
+      "instances": [
+        {
+          "position": [
+            -3.9,
+            0,
+            3.4
+          ]
+        },
+        {
+          "position": [
+            3.9,
+            0,
+            3.4
+          ]
+        }
+      ],
+      "model": "./assets/ck_timber_post-original.glb"
+    },
+    {
+      "id": "door-frame",
+      "name": "Empty teal doorway frame",
+      "targetSize": [
+        2.6,
+        2.55,
+        0.22
+      ],
+      "instances": [
+        {
+          "position": [
+            0,
+            0,
+            3.5
+          ]
+        }
+      ],
+      "model": "./assets/ck_door_frame-cleaned.glb",
+      "fit": "axisScale"
+    },
+    {
+      "id": "window-frame",
+      "name": "Empty teal window frame",
+      "targetSize": [
+        2,
+        1.7,
+        0.2
+      ],
+      "instances": [
+        {
+          "position": [
+            -2.5,
+            0.8,
+            3.5
+          ]
+        },
+        {
+          "position": [
+            2.5,
+            0.8,
+            3.5
+          ]
+        }
+      ],
+      "model": "./assets/ck_window_frame-original.glb",
+      "fit": "axisScale"
+    },
+    {
+      "id": "coffee-counter",
+      "name": "Individual coffee counter",
+      "targetSize": [
+        3.2,
+        1.05,
+        0.8
+      ],
+      "instances": [
+        {
+          "position": [
+            -1.8,
+            0,
+            -2.2
+          ]
+        }
+      ],
+      "model": "./assets/ck_coffee_counter-original.glb",
+      "fit": "axisScale"
+    },
+    {
+      "id": "pastry-case",
+      "name": "Individual pastry display case",
+      "targetSize": [
+        1,
+        0.6,
+        0.55
+      ],
+      "instances": [
+        {
+          "position": [
+            -0.7,
+            1.05,
+            -2.2
+          ]
+        }
+      ],
+      "model": "./assets/ck_brass_display_frame_v2-clear-glass.glb",
+      "sourceRotation": [
+        0,
+        0,
+        0
+      ],
+      "fit": "axisScale"
+    },
+    {
+      "id": "cafe-table",
+      "name": "Individual café table",
+      "targetSize": [
+        0.85,
+        0.75,
+        0.85
+      ],
+      "instances": [
+        {
+          "position": [
+            2.35,
+            0,
+            -0.9
+          ]
+        },
+        {
+          "position": [
+            2.35,
+            0,
+            1.45
+          ]
+        }
+      ],
+      "model": "./assets/ck_round_table_v2-original.glb"
+    },
+    {
+      "id": "cafe-chair",
+      "name": "Individual café chair",
+      "targetSize": [
+        0.46,
+        0.85,
+        0.5
+      ],
+      "instances": [
+        {
+          "position": [
+            1.5,
+            0,
+            -0.9
+          ],
+          "rotation": [
+            0,
+            1.570796326795,
+            0
+          ]
+        },
+        {
+          "position": [
+            3.2,
+            0,
+            -0.9
+          ],
+          "rotation": [
+            0,
+            -1.570796326795,
+            0
+          ]
+        },
+        {
+          "position": [
+            1.5,
+            0,
+            1.45
+          ],
+          "rotation": [
+            0,
+            1.570796326795,
+            0
+          ]
+        },
+        {
+          "position": [
+            3.2,
+            0,
+            1.45
+          ],
+          "rotation": [
+            0,
+            -1.570796326795,
+            0
+          ]
+        }
+      ],
+      "model": "./assets/ck_chair-original.glb"
+    },
+    {
+      "id": "wall-shelf",
+      "name": "Individual timber shelf",
+      "targetSize": [
+        1.4,
+        1,
+        0.3
+      ],
+      "instances": [
+        {
+          "position": [
+            -1.8,
+            1.8,
+            -3.3
+          ]
+        }
+      ],
+      "model": "./assets/ck_wall_shelf-original.glb"
+    },
+    {
+      "id": "pendant-lamp",
+      "name": "Individual pendant lamp",
+      "targetSize": [
+        0.4,
+        0.7,
+        0.4
+      ],
+      "instances": [
+        {
+          "position": [
+            -1.8,
+            2.45,
+            -2.2
+          ]
+        },
+        {
+          "position": [
+            2.35,
+            2.45,
+            -0.9
+          ]
+        },
+        {
+          "position": [
+            2.35,
+            2.45,
+            1.45
+          ]
+        }
+      ],
+      "model": "./assets/ck_pendant-original.glb"
+    },
+    {
+      "id": "espresso-machine",
+      "name": "Preserved original espresso machine",
+      "model": "../assets/meshy-cafe/copperlight-espresso-faithful.glb",
+      "targetSize": [
+        0.68,
+        0.9,
+        0.65
+      ],
+      "instances": [
+        {
+          "position": [
+            -2.55,
+            1.05,
+            -2.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crescent-pastry",
+      "name": "Individual crescent pastry",
+      "model": "./assets/ck_crescent_pastry-original.glb",
+      "sourceRotation": [
+        -1.570796326795,
+        0,
+        0
+      ],
+      "targetSize": [
+        0.2,
+        0.1,
+        0.13
+      ],
+      "instances": [
+        {
+          "position": [
+            -1.03,
+            1.06,
+            -2.34
+          ]
+        },
+        {
+          "position": [
+            -1.03,
+            1.06,
+            -2.07
+          ]
+        },
+        {
+          "position": [
+            -0.7,
+            1.06,
+            -2.34
+          ]
+        },
+        {
+          "position": [
+            -0.7,
+            1.06,
+            -2.07
+          ]
+        },
+        {
+          "position": [
+            -0.37,
+            1.06,
+            -2.34
+          ]
+        },
+        {
+          "position": [
+            -0.37,
+            1.06,
+            -2.07
+          ]
+        },
+        {
+          "position": [
+            2.15,
+            0.751,
+            -0.9
+          ]
+        },
+        {
+          "position": [
+            2.15,
+            0.751,
+            1.45
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teal-cup",
+      "name": "Individual teal ceramic cup",
+      "model": "./assets/ck_teal_cup-original.glb",
+      "targetSize": [
+        0.14,
+        0.12,
+        0.11
+      ],
+      "instances": [
+        {
+          "position": [
+            -2.1,
+            2.563,
+            -3.25
+          ]
+        },
+        {
+          "position": [
+            -1.8,
+            2.563,
+            -3.25
+          ]
+        },
+        {
+          "position": [
+            -1.5,
+            2.563,
+            -3.25
+          ]
+        },
+        {
+          "position": [
+            2.5,
+            0.751,
+            -0.9
+          ]
+        },
+        {
+          "position": [
+            2.5,
+            0.751,
+            1.45
+          ]
+        }
+      ]
+    }
+  ],
+  "nav": "./walk-grid.json"
+}

@@ -1,0 +1,259 @@
+{
+  "files": [
+    {
+      "path": "dist/AGENTS.md",
+      "bytes": 1431,
+      "sha256": "3262b62bb2b02ccca9acd80901b689134ceb136a62a31676d41482fb34216def"
+    },
+    {
+      "path": "dist/app.js",
+      "bytes": 19767,
+      "sha256": "428256b8951df8203a5e93103892bb5a65aa1fe901a0864e2766b7214632beb1"
+    },
+    {
+      "path": "dist/asset-lighting.js",
+      "bytes": 2099,
+      "sha256": "c72330e69d688efb542b6c983c0d1765281db84780e4fcf0d797739c06628a24"
+    },
+    {
+      "path": "dist/assets/meshy-cafe/asset.json",
+      "bytes": 46,
+      "sha256": "99e4cc7829b045f1d879fca578c832538620bda79b3b3c10683dacbbbe80f2ca"
+    },
+    {
+      "path": "dist/assets/meshy-cafe/copperlight-espresso-faithful.glb",
+      "bytes": 21027724,
+      "sha256": "220feef8a9bc2713d66062ad93d045f03f1e405a7ca8d1f49a5130e30b8e23b0"
+    },
+    {
+      "path": "dist/building-test/app.js",
+      "bytes": 12680,
+      "sha256": "e077c8e1ae3b3fd20e6fc96347fb6628e4fa758f17c0ea28883df38ad0b31b60"
+    },
+    {
+      "path": "dist/building-test/asset-lighting.js",
+      "bytes": 2125,
+      "sha256": "beb13594612658d6700a61efdc140cae727783bd431f6e154e5a4032032a2671"
+    },
+    {
+      "path": "dist/building-test/assets/ck_brass_display_frame_v2-clear-glass.glb",
+      "bytes": 5782288,
+      "sha256": "e3cb88476da1bfab62804928acbf1127c017e892331e6cbd795ded81326a4018"
+    },
+    {
+      "path": "dist/building-test/assets/ck_chair-original.glb",
+      "bytes": 7493984,
+      "sha256": "40ff80094f2a537b75de5dfc94d16335c72fc684a76018df6f18fc423f323baa"
+    },
+    {
+      "path": "dist/building-test/assets/ck_coffee_counter-original.glb",
+      "bytes": 3822020,
+      "sha256": "26b61ebe1b8bf7b725cba386e84d19f2f4efdddd5109db18851e180c126535fd"
+    },
+    {
+      "path": "dist/building-test/assets/ck_crescent_pastry-original.glb",
+      "bytes": 9165872,
+      "sha256": "72cbb2e03f3e1c885e9707f18b51449ecb8ee6640058c5dc2f651d1c7b48d96a"
+    },
+    {
+      "path": "dist/building-test/assets/ck_door_frame-cleaned.glb",
+      "bytes": 3459636,
+      "sha256": "abd867d6a2edcba980de1d1de752298efdf555e3794c82b1232f6d2e2cd72461"
+    },
+    {
+      "path": "dist/building-test/assets/ck_floor_panel-original.glb",
+      "bytes": 2619016,
+      "sha256": "c6f31e15840994b9a76ee66533133eed766209014c1645a7ba1ab922db9b85a9"
+    },
+    {
+      "path": "dist/building-test/assets/ck_pendant-original.glb",
+      "bytes": 6668144,
+      "sha256": "b7d9bf8a6f70d273167d502deb6e5966f4a039cb8a79827f4901c032c6c398d8"
+    },
+    {
+      "path": "dist/building-test/assets/ck_plaster_slab_v2-cleaned.glb",
+      "bytes": 4862240,
+      "sha256": "20b03b9a984535b8b9893f6757df4be3cc57dd11811de0e0fe25fa9501d38f14"
+    },
+    {
+      "path": "dist/building-test/assets/ck_roof_panel-original.glb",
+      "bytes": 5533424,
+      "sha256": "6d21f75998c0c317ec449d859ba556e09baea85c1529f385f72e23d62ed723da"
+    },
+    {
+      "path": "dist/building-test/assets/ck_round_table_v2-original.glb",
+      "bytes": 10274828,
+      "sha256": "39d69683111df28c569f6aee909cf0c7decb335fabea879f340250831d0511f9"
+    },
+    {
+      "path": "dist/building-test/assets/ck_teal_cup-original.glb",
+      "bytes": 5496764,
+      "sha256": "951d59c08c87f95570f30c91173b2408bc24c78d7699a7f6198e17e2764733d0"
+    },
+    {
+      "path": "dist/building-test/assets/ck_timber_post-original.glb",
+      "bytes": 4406636,
+      "sha256": "a9696da15b4fb3d3ed3ef91d30215a0ad1b711834d576507b9cb99d36753c00c"
+    },
+    {
+      "path": "dist/building-test/assets/ck_wall_shelf-original.glb",
+      "bytes": 4881664,
+      "sha256": "4d2a6941c23824a96599f98749568d550efe43ebcaeb05a1f597b5c5b93bb70b"
+    },
+    {
+      "path": "dist/building-test/assets/ck_window_frame-original.glb",
+      "bytes": 4202960,
+      "sha256": "a46fce30a4fe1842c020251de646c0110285b20eacfeeb4432e66031eb08b7af"
+    },
+    {
+      "path": "dist/building-test/assets.js",
+      "bytes": 6341,
+      "sha256": "6db42b374141965fcf616a3f32779475af9a5aa612719255daaca6bea4f957be"
+    },
+    {
+      "path": "dist/building-test/assets.json",
+      "bytes": 15471,
+      "sha256": "822c6f6562976aae863e47419b4c4142e33eabe40fb1602c1222ed7f728cfa3d"
+    },
+    {
+      "path": "dist/building-test/assets.test.mjs",
+      "bytes": 3730,
+      "sha256": "b4bf9f57d4943c6b843deba469fe48a25647da07ce664a155166d7356fdcb2e0"
+    },
+    {
+      "path": "dist/building-test/index.html",
+      "bytes": 2386,
+      "sha256": "30ec8ac43bc28bfab71eae0c859ec8e750578de6eddb843922bb89119256112c"
+    },
+    {
+      "path": "dist/building-test/layout.test.mjs",
+      "bytes": 2443,
+      "sha256": "eba630e1a84ea3820e37bd98738a9c165fc4f872a75f72757a7628675f1da267"
+    },
+    {
+      "path": "dist/building-test/navigation.js",
+      "bytes": 1469,
+      "sha256": "29396eff7c6e44925e929c27399c721f59d459de9d3cbd5bdc2c4f8c5c5291f8"
+    },
+    {
+      "path": "dist/building-test/navigation.test.mjs",
+      "bytes": 1146,
+      "sha256": "f8aeb4925d528e0966c45db326d1f3c8c4880bb30d8ae844e592c49048c10e4b"
+    },
+    {
+      "path": "dist/building-test/style.css",
+      "bytes": 3488,
+      "sha256": "26a3bb518a7443d22e1b877bf5d8d8ebb15f5fca4285025b8b3cf9138f4b5110"
+    },
+    {
+      "path": "dist/building-test/vendor/GLTFLoader.js",
+      "bytes": 96550,
+      "sha256": "5c15967ba830918a9caea6338712c994c354bccd4edc4569bde411c3ec06a3e6"
+    },
+    {
+      "path": "dist/building-test/vendor/THREE-LICENSE.txt",
+      "bytes": 1081,
+      "sha256": "7dddf7c5b8fd10ee654db8857d75d104b5557889aa5a91fc4ca545ea7c07062f"
+    },
+    {
+      "path": "dist/building-test/vendor/three-r128.min.js",
+      "bytes": 603445,
+      "sha256": "9274bbcec8d96168626c732b5d31c775aa8cfb7eaa0599bec0c175908a2c1ce2"
+    },
+    {
+      "path": "dist/building-test/walk-grid.json",
+      "bytes": 179355,
+      "sha256": "81872c2694b05698eccca48e5fccff2a7150f73dfcf80ab5f7ec1217666d59db"
+    },
+    {
+      "path": "dist/fonts/Fraunces.ttf",
+      "bytes": 71580,
+      "sha256": "3eb6cf0a14feb1876cc464fa093af4e0c5b05dc46dec65619c1d95f2a1ab5aa7"
+    },
+    {
+      "path": "dist/fonts/OFL.txt",
+      "bytes": 4391,
+      "sha256": "bdf4c22802eaf804f998195871c6b8938aac2ac14b2d78a8bd66a6f1eced833b"
+    },
+    {
+      "path": "dist/index.html",
+      "bytes": 6040,
+      "sha256": "e98d8a47ca443f35421c3f5df7dd79bfcff9b7deaa049a79cf9ddf9b1cc3f9d8"
+    },
+    {
+      "path": "dist/landscape.js",
+      "bytes": 18157,
+      "sha256": "2e07d1e45ed41d4f4d883c626d94b8161d075449301fffbc9925b3fab6d8c265"
+    },
+    {
+      "path": "dist/materials.js",
+      "bytes": 10640,
+      "sha256": "dc8db792b2b4fb9c2568df64e0aeeebe4263152f86fbace7c20f8d518f4ac2f0"
+    },
+    {
+      "path": "dist/modular-cafe.js",
+      "bytes": 1834,
+      "sha256": "c7969b039f5b7a65abf9460e44aef691d242e05c67d97f91e9d987a06c1d51be"
+    },
+    {
+      "path": "dist/resident-distance.js",
+      "bytes": 4009,
+      "sha256": "c26cb13ac2b2f445eaaa9a433bdcba5b9992cf1fc620b1dd3d8ce6cca06991d4"
+    },
+    {
+      "path": "dist/simulation.js",
+      "bytes": 3743,
+      "sha256": "18634a11920f162066b532da56a48b605476c92507f3a2554316920f7a25d309"
+    },
+    {
+      "path": "dist/station.js",
+      "bytes": 14736,
+      "sha256": "3f292289c489d05d2113946690ee33546a6fe76ca7eff735b662c313ed60b682"
+    },
+    {
+      "path": "dist/style.css",
+      "bytes": 10768,
+      "sha256": "74a59e8c7819285a787c081ef0a669f2244ee2f829a752d26ded7873d40b8fec"
+    },
+    {
+      "path": "dist/town-enterable.js",
+      "bytes": 13990,
+      "sha256": "fde62dfb9f3e50eb595d0ae1b5223daee320d186a33a8d91fd5f72789591f586"
+    },
+    {
+      "path": "dist/town-landmarks.js",
+      "bytes": 11220,
+      "sha256": "22afff84a77c7f73b2455f3a7bb166c4a71d765dffc6759850ba1a71269938be"
+    },
+    {
+      "path": "dist/town-market.js",
+      "bytes": 16595,
+      "sha256": "d7abb114278c1f48b39b1a94cd645428994dc2bc50ec7670270c70c55ce80be3"
+    },
+    {
+      "path": "dist/town-public.js",
+      "bytes": 2600,
+      "sha256": "c2c76faabb9f23f60ae15bd4f323a24011f6f5f35f13599c7b7e56343f89c6d4"
+    },
+    {
+      "path": "dist/vendor/GLTFLoader.js",
+      "bytes": 96550,
+      "sha256": "5c15967ba830918a9caea6338712c994c354bccd4edc4569bde411c3ec06a3e6"
+    },
+    {
+      "path": "dist/vendor/THREE-LICENSE.txt",
+      "bytes": 1081,
+      "sha256": "7dddf7c5b8fd10ee654db8857d75d104b5557889aa5a91fc4ca545ea7c07062f"
+    },
+    {
+      "path": "dist/vendor/three-r128.min.js",
+      "bytes": 603445,
+      "sha256": "9274bbcec8d96168626c732b5d31c775aa8cfb7eaa0599bec0c175908a2c1ce2"
+    },
+    {
+      "path": "dist/world.js",
+      "bytes": 26965,
+      "sha256": "84ed5448a348a05016c091d233dc41063816efc95ea762eb21440d55f3991653"
+    }
+  ]
+}

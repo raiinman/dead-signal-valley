@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Copper Kettle Café · Individual Meshy asset assembly</title>
+  <meta name="description" content="Individual original Meshy architectural pieces and furnishings assembled into a walkable café test.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" onerror="this.onerror=null;this.src='./vendor/three-r128.min.js'"></script>
+  <script src="./vendor/GLTFLoader.js"></script>
+</head>
+<body>
+  <main id="viewport" aria-label="Interactive three-dimensional café preview"></main>
+  <header class="paper"><div><span class="eyebrow">Dead Signal Valley · Individual asset study</span><h1>Copper Kettle Café</h1></div></header>
+  <nav class="paper tools" aria-label="View controls">
+    <button id="exterior" type="button" aria-pressed="true">Exterior</button>
+    <button id="walk" type="button" disabled>Walk outside</button>
+    <button id="inside" type="button" disabled>Inside</button>
+    <button id="time" type="button" aria-pressed="false">Daylight</button>
+    <button id="details" type="button" aria-expanded="true" aria-controls="audit">Asset details</button>
+  </nav>
+  <section id="audit" class="paper" aria-label="Asset fidelity details"><h2>Individual pieces, assembled here.</h2><p id="stats">Reading asset manifest.</p><p id="integrity">Original model detail, textures and PBR factors preserved. Repeated pieces share the same geometry and maps. Wall and doorway debris were removed without resizing or rebuilding their surfaces; clear display glass was authored separately.</p><ul id="inventory" aria-label="Individual asset inventory"></ul><p id="validation">Walking awaits verified assembled geometry.</p></section>
+  <aside id="status" class="paper" role="status" aria-live="polite">Reading the individual asset manifest…</aside>
+  <footer class="paper"><span id="guide">Drag to orbit · Scroll to zoom</span><span class="fine">Individually modeled pieces · Copper Kettle Café</span></footer>
+  <div id="joystick" aria-label="Movement control"><div id="stick"></div></div>
+  <div id="crosshair" hidden aria-hidden="true"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

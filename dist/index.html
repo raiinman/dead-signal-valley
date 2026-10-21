@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f4efdf"><meta name="description" content="Explore a living Dead Signal Valley: fifteen shops, seven landmarks, a river walk and a working mountain railway.">
+<title>Dead Signal Valley — A Living Town</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%232e5550'/%3E%3Cpath d='M9 28V16l11-8 11 8v12M16 28V18h8v10' fill='none' stroke='%23f4efdf' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#destinations">Skip to destinations</a>
+<main id="world" aria-label="Interactive three dimensional Dead Signal Valley"><div id="loading" role="status">Opening the valley…</div></main>
+<header class="topbar chrome">
+  <a class="brand" href="#" id="brand-home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 25V13l11-8 11 8v12M12 25V15h8v10M4 26h24"/><path d="M12 8V4m8 4V4"/></svg><span>Dead Signal Valley<small>A little town for lost signals</small></span></a>
+  <nav aria-label="View and sound"><button id="overview" aria-pressed="false">Overview</button><button id="sound" aria-pressed="false" aria-label="Enable sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 4-6 5H2v6h3l6 5V4Zm5 4a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></svg><span>Sound</span></button><button id="journal-open" aria-expanded="false" aria-controls="journal">Field notes <span id="found-count">0/10</span></button><button id="settings-open" aria-expanded="false" aria-controls="settings" aria-label="Open settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16M8 3v6m8 0v6m-6 0v6"/></svg></button></nav>
+</header>
+<section id="welcome" class="chrome" aria-labelledby="welcome-title">
+  <h1 id="welcome-title">Find your<br>way home.</h1>
+  <p>Fifteen shops. Seven familiar landmarks.<br>Small signals between the everyday things.</p>
+  <p class="touch-help">Left pad to move. Drag the right side to look. Tap Listen near a signal.</p>
+  <button id="start" class="primary">Walk into the valley <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button>
+  <small>Ten places to visit. Ten quiet signals to find.</small>
+</section>
+<aside id="settings" class="panel chrome" hidden aria-labelledby="settings-title"><div class="panel-head"><h2 id="settings-title">Make yourself at home</h2><button data-close="settings" aria-label="Close settings">×</button></div><label for="time">Light in the valley</label><select id="time"><option value="afternoon">Afternoon</option><option value="dusk">Dusk</option><option value="night">Night</option></select><label for="quality">Detail</label><select id="quality"><option value="high">High</option><option value="medium" selected>Medium</option><option value="low">Low</option></select><label for="volume">Ambience volume</label><input id="volume" type="range" min="0" max="100" value="40"><button id="recover">Return to the café</button><p>WASD move · Shift run · Space jump<br>Mouse look · F fly · E listen<br>1–9 and 0 visit places · M mute · H hide controls<br>Escape releases the mouse.</p><button id="show-help">Show walking guide</button></aside>
+<aside id="journal" class="panel chrome" hidden aria-labelledby="journal-title"><div class="panel-head"><h2 id="journal-title">Signals around the valley</h2><button data-close="journal" aria-label="Close field notes">×</button></div><p>Slow down. Every place has something to say.</p><ol id="notes"></ol><p class="save-note" id="save-note">Your field notes stay in this browser.</p></aside>
+<aside id="places" class="panel chrome" hidden aria-labelledby="places-title"><div class="panel-head"><h2 id="places-title">Around the valley</h2><button data-close="places" aria-label="Close places">×</button></div><p>Seven landmarks, a market street, and the river between them. Choose a place to begin.</p><nav id="place-list" aria-label="All town destinations"></nav><p>Café, workshop and arcade doors are open. Every shop has a window into village life.</p></aside>
+<div id="toast" role="status" aria-live="polite"></div>
+<div id="interaction"><span id="interaction-text"></span><button id="interact">Listen <kbd>E</kbd></button></div>
+<footer class="chrome"><div class="where"><span class="live-dot"></span><span id="location">Along the river road</span><small id="train-status">The valley line is running</small></div><nav id="destinations" aria-label="Route destinations"><button data-place="cafe"><span>1</span>Café</button><i></i><button data-place="plaza"><span>2</span>Bell plaza</button><i></i><button data-place="bridge"><span>3</span>Timber bridge</button><i></i><button data-place="station"><span>4</span>Station</button></nav><button id="places-open" aria-expanded="false" aria-controls="places">All places</button><button id="guide-toggle" aria-expanded="false" aria-controls="guide">Walking guide</button></footer>
+<div id="guide" class="chrome" hidden><strong>Make a little room for wandering.</strong><p>WASD to walk. Drag to look, or click the view to use your mouse. Press E near a signal. Escape lets you use the menus.</p><p class="touch-help">On a phone: move with the left thumb pad, drag the right side to look, and tap Listen near a signal.</p><button id="guide-close">Got it</button></div>
+<div id="touch-controls"><div id="stick" aria-label="Movement thumb pad"><div id="thumb"></div></div><button id="touch-jump" aria-label="Jump">Jump</button></div>
+<button id="restore-ui" hidden>Show controls</button><div id="crosshair" aria-hidden="true"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>if(!window.THREE){document.write('<script src="vendor/three-r128.min.js"><\/script>')}</script>
+<script type="module" src="app.js"></script>
+</body></html>

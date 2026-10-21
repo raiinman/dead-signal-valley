@@ -1,0 +1,15 @@
+{
+  "name": "dead-signal-valley",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "serve": "node tools/serve.mjs",
+    "test": "node test.mjs && node test-espresso-fidelity.mjs && node test-cafe-town.mjs && node dist/building-test/navigation.test.mjs && node dist/building-test/assets.test.mjs && node dist/building-test/layout.test.mjs",
+    "manifest": "node tools/write-manifest.mjs",
+    "verify:assets": "node tools/verify-runtime.mjs"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "result": "passed",
+  "testedLocalUrl": "http://127.0.0.1:8771/",
+  "assembly": {
+    "assetTypes": 15,
+    "placement": [-13, 0.12, 9.5],
+    "frontDoorTownZ": 13,
+    "original2KMaps": true,
+    "originalRuntimeGLBHashes": "cafe-source-hashes.json",
+    "espressoInstances": 1,
+    "swap": "Atomic after all assets and accepted measured navigation load."
+  },
+  "desktop": {
+    "keyboardEntry": {"x": -13, "z": 10.47475, "feet": 0.1183},
+    "furnitureStopsStrafing": {"x": -12.205, "z": 10.95},
+    "keyboardExit": {"x": -13, "z": 15.005265, "feet": 0},
+    "qualityAndTimeCombinations": 9,
+    "existingDestinationsWithWalkableGround": 10,
+    "distantFallback": true,
+    "pageErrors": [],
+    "failedRequests": []
+  },
+  "failureInjection": {
+    "blockedAsset": "ck_chair-original.glb",
+    "modularAssemblyActivated": false,
+    "proceduralCafeRemainedVisible": true,
+    "fallbackInteriorFloor": 0.12,
+    "partialDetailedEspressoAdded": false
+  },
+  "offlineMobileEmulation": {
+    "viewport": [390, 844],
+    "allExternalRequestsBlocked": true,
+    "blockedCDN": "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js",
+    "localThreeRevision": "128",
+    "realWebGLCanvasAndAllCafeAssetsLoaded": true,
+    "quality": "low",
+    "nativeTouchEntry": {"x": -13, "z": 10.39578, "feet": 0.1183},
+    "nativeTouchLookYaw": -0.18,
+    "horizontalOverflow": false,
+    "pageErrors": []
+  },
+  "checks": [
+    "Canonical town npm test, including all 15 committed source hash baselines",
+    "Original espresso byte-for-byte mesh/material/2K texture fidelity",
+    "Standalone modular cafe navigation, asset sharing and layout tests",
+    "git diff --check"
+  ],
+  "limits": [
+    "Physical phone GPU performance was not measured.",
+    "Offline use requires a local HTTP server; file URLs are not the supported module-loading path.",
+    "Distant views use the procedural cafe fallback with the earlier larger shell footprint."
+  ]
+}

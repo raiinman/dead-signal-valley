@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.openai/
+.playwright-mcp/
+__pycache__/
+*.blend
+*.blend1
+*.zip
+*.tar.gz
+.DS_Store

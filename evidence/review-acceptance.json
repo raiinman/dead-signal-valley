@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "scope": "Separate modular Copper Kettle Cafe walking prototype",
+  "geometryDefinitionSha256": "10ee94b6753c511c7906f6dcd8e28713a8aedb0272ee0db660625a7afdd8cfa5",
+  "assetTypes": 15,
+  "drawnTriangles": 1288084,
+  "renderedMeshes": 74,
+  "sourceAudit": "./assembly-audit.json",
+  "navigationGrid": "./walk-grid.json",
+  "clearReachableInteriorM2": 35.45,
+  "checks": {
+    "npmTest": "passed",
+    "desktopMobileInventoryAndOriginalFidelity": "passed",
+    "singleDownloadSharedGeometryAndMaterialReferences": "passed",
+    "realKeyboardEntry": {"x": 0, "y": -0.0016, "z": 1.282},
+    "realKeyboardFurnitureBlocking": {"x": 0.91219, "y": -0.0013, "z": 1.45},
+    "realKeyboardExit": {"x": 0, "y": 0, "z": 4.8},
+    "emulatedMobileTouchMovement": {"x": 0, "y": -0.002, "z": 0.25919},
+    "emulatedMobileRightDragYawRadians": 0.2,
+    "mobilePageOverflow": false,
+    "runtimeErrors": []
+  },
+  "evidence": ["final-walk-inside.png", "final-walk-evening.png", "final-mobile-walk.png", "final-table-v2-with-props.png", "details-in-display.png"],
+  "limits": ["Physical phone performance unverified.", "Display glass uses alpha-blended PBR approximation without physical refraction.", "Doorway body-center passage is approximately 1.2m wide; the original 2m clear-opening target was not reached."]
+}

@@ -177,8 +177,8 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 24755,
-      "sha256": "8e719f2e392a134f0f71de3a7b20107e7b035cde852b37d8f5f14be5ba4cc5ef"
+      "bytes": 24754,
+      "sha256": "fed2d3acb05ea1a04a5fa7afb7e37b3ef818c4a9c5b41071648ac1690541ad05"
     },
     {
       "path": "dist/landscape.js",
@@ -217,8 +217,8 @@
     },
     {
       "path": "dist/style.css",
-      "bytes": 25325,
-      "sha256": "d90fae0f6825e8cd540f4925ede9980651746b54b9ca1dee99179590d289b180"
+      "bytes": 25324,
+      "sha256": "795e7a047740c12175c6946beeed7e685cd189a16dfcc81466a11df443cd8562"
     },
     {
       "path": "dist/town-enterable.js",
